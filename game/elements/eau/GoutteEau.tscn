@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/elements/eau/Eau.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/elements/eau/GoutteEau.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 21.4476
+
+[node name="GoutteEau" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -4.76758, -2.64865 )
+shape = SubResource( 1 )
+
+[node name="Eau" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3.5381, 2.91711 )
+
+[node name="Eau2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8.39494, 3.66853 )
+
+[node name="Eau3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.75291, -4.59103 )
+
+[node name="Eau4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16.6915, -13.0204 )
+
+[node name="Eau5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -6.76328, -8.83869 )
+
+[node name="Eau6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -7.87196, -18.0443 )
+
+[node name="Eau7" parent="." instance=ExtResource( 1 )]
+position = Vector2( -18.2274, 5.43335 )
+
+[node name="Eau8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -11.3783, -1.50324 )
+
+[node name="Eau9" parent="." instance=ExtResource( 1 )]
+position = Vector2( -21.168, -3.95589 )
+
+[node name="Eau10" parent="." instance=ExtResource( 1 )]
+position = Vector2( -12.0596, 10.8704 )
+
+[node name="Eau11" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3.04374, 13.099 )
+
+[node name="Eau12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4.1611, 9.58929 )
+
+[node name="Eau13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1.98061, -16.7925 )
+
+[node name="Eau14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 11.197, -3.20424 )
+
+[node name="Eau15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8.65059, -10.7563 )
