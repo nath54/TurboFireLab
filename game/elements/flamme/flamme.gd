@@ -7,8 +7,13 @@ que l'eau reste un temps déterminé minimum pour que le
 feu s'éteigne.
 """
 
-
-
-
 func _on_Area2D_body_entered(body):
-	pass # Replace with function body.
+	"""
+	On définira ici les règles de physique lorsqu'un OBJET
+	rentre en collision avec la flamme
+	"""
+		
+	if body.get("est_eau"):
+		get_parent().get_parent().get_parent().test_gagne();
+		queue_free();
+

@@ -19,6 +19,10 @@ config/name="game_jam_9_avril"
 run/main_scene="res://menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[physics]
+
+2d/default_gravity_vector=Vector2( 0, 5 )
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

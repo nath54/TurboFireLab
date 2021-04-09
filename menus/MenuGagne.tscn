@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/MenuGagne.gd" type="Script" id=1]
+
+[node name="MenuGagne" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 200.012
+margin_top = 73.0204
+margin_right = 834.012
+margin_bottom = 304.02
+text = "Vous avez gagné !"
+align = 1
+valign = 1
+
+[node name="Bt_recommencer" type="Button" parent="."]
+margin_left = 157.435
+margin_top = 376.224
+margin_right = 428.435
+margin_bottom = 506.224
+text = "Recommencer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_Menu" type="Button" parent="."]
+margin_left = 500.313
+margin_top = 369.874
+margin_right = 771.313
+margin_bottom = 499.874
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
+[connection signal="pressed" from="Bt_Menu" to="." method="_on_Bt_Menu_pressed"]

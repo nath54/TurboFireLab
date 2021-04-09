@@ -2,7 +2,8 @@
 
 [ext_resource path="res://game/elements/flamme/flamme.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/elements/barre/barre.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game/elements/eau/eau.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/elements/eau/Eau.tscn" type="PackedScene" id=3]
+
 
 [node name="Scene" type="Node2D"]
 
@@ -14,20 +15,10 @@
 position = Vector2( 615.912, 447.647 )
 scale = Vector2( 0.4, 0.4 )
 
-[node name="Flamme2" parent="Flammes" instance=ExtResource( 1 )]
-position = Vector2( 798.463, 431.773 )
-scale = Vector2( 0.4, 0.4 )
-
 [node name="Elements" type="Node2D" parent="."]
 
 [node name="Eau" parent="Elements" instance=ExtResource( 3 )]
 position = Vector2( 223.824, 134.929 )
-
-[node name="Eau2" parent="Elements" instance=ExtResource( 3 )]
-position = Vector2( 212.712, 169.852 )
-
-[node name="Eau3" parent="Elements" instance=ExtResource( 3 )]
-position = Vector2( 238.111, 165.09 )
 
 [node name="Barre" parent="Elements" instance=ExtResource( 2 )]
 position = Vector2( 392.088, 377.801 )

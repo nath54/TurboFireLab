@@ -11,12 +11,23 @@ __meta__ = {
 }
 
 [node name="Bt_play" type="Button" parent="."]
-margin_left = 292.215
-margin_top = 208.47
-margin_right = 566.215
-margin_bottom = 408.47
+margin_left = 137.198
+margin_top = 233.415
+margin_right = 411.198
+margin_bottom = 433.415
 text = "jouer"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Bt_quitter" type="Button" parent="."]
+margin_left = 514.939
+margin_top = 235.197
+margin_right = 788.939
+margin_bottom = 435.197
+text = "Quitter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Bt_play" to="." method="_on_Bt_play_pressed"]
+[connection signal="pressed" from="Bt_quitter" to="." method="_on_Bt_quitter_pressed"]
