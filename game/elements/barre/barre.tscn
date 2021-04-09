@@ -3,7 +3,7 @@
 [ext_resource path="res://game/elements/barre/barre.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 243.393, 23.6174 )
+extents = Vector2( 243, 23 )
 
 [node name="Barre" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -13,4 +13,4 @@ shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -241.558, -22.8748, 242.251, -20.3549, 242.251, 23.7423, -241.558, 21.2224 )
+polygon = PoolVector2Array( -241.952, -23.207, 242.691, -22.7961, 242.972, 23.5055, -242.212, 22.9442 )

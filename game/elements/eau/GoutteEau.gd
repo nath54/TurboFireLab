@@ -6,6 +6,10 @@ var radius = 21
 func _input(event):
 	if not GlobalGame.lance_initial and event is InputEventMouseButton and event.pressed:
 		if global_position.distance_to(get_global_mouse_position()) <= radius:
+			if GlobalGame.is_deleting:
+				if get_parent().get_child_count() > 1:
+					queue_free()
+				GlobalGame.is_deleting = false
 			dragging = true
 	if event is InputEventMouseButton and not event.pressed:
 		dragging = false

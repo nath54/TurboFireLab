@@ -1,38 +1,68 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/elements/flamme/flamme.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/elements/barre/barre.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/elements/eau/GoutteEau.tscn" type="PackedScene" id=3]
+[ext_resource path="res://res/imgs/v462-n-130-textureidea_1.jpg" type="Texture" id=4]
 
 [node name="Scene" type="Node2D"]
 
 [node name="Bg" type="Node2D" parent="."]
 
+[node name="Sprite" type="Sprite" parent="Bg"]
+position = Vector2( 638.604, 357.951 )
+scale = Vector2( 1.59163, 1.33467 )
+texture = ExtResource( 4 )
+
 [node name="Flammes" type="Node2D" parent="."]
 
 [node name="Flamme" parent="Flammes" instance=ExtResource( 1 )]
-position = Vector2( 617.172, 455.207 )
+position = Vector2( 620.767, 328.502 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="Flamme2" parent="Flammes" instance=ExtResource( 1 )]
-position = Vector2( 370.683, 373.632 )
+position = Vector2( 244.349, 310.454 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="Elements" type="Node2D" parent="."]
 
 [node name="eau" type="Node2D" parent="Elements"]
 
-[node name="GoutteEau" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 646.919, 25.1242 )
+[node name="GoutteEau50" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 148.362, 109.659 )
+rotation = 2.98359
 
-[node name="Barre" parent="Elements" instance=ExtResource( 2 )]
-position = Vector2( 286.255, 380.321 )
-rotation = 0.494163
+[node name="GoutteEau9" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 151.032, 154.339 )
 
-[node name="Barre3" parent="Elements" instance=ExtResource( 2 )]
-position = Vector2( 602.827, 152.39 )
-rotation = 2.33989
+[node name="GoutteEau40" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 131.502, 103.572 )
+rotation = 2.98359
 
-[node name="Barre2" parent="Elements" instance=ExtResource( 2 )]
-position = Vector2( 704.806, 490.507 )
+[node name="GoutteEau20" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 113.062, 105.489 )
+rotation = 2.98359
+
+[node name="GoutteEau56" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 136.856, 176.107 )
+rotation = 2.98359
+
+[node name="GoutteEau60" parent="Elements/eau" instance=ExtResource( 3 )]
+position = Vector2( 158.558, 72.9653 )
+rotation = 2.98359
+
+[node name="barres" type="Node2D" parent="Elements"]
+
+[node name="Barre" parent="Elements/barres" instance=ExtResource( 2 )]
+position = Vector2( 148.823, 256.05 )
+rotation = 1.0706
+scale = Vector2( 0.822791, 0.48567 )
+
+[node name="Barre5" parent="Elements/barres" instance=ExtResource( 2 )]
+position = Vector2( 697.277, 331.576 )
+rotation = 1.15416
+scale = Vector2( 0.338131, 1 )
+
+[node name="Barre2" parent="Elements/barres" instance=ExtResource( 2 )]
+position = Vector2( 489.867, 398.25 )
 rotation = -0.0715921

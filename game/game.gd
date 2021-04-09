@@ -28,3 +28,8 @@ func _on_Bt_lancer_pressed():
 
 func _on_Bt_recommencer_pressed():
 	get_tree().change_scene("res://game/game.tscn")
+
+
+func _on_Bt_delete_pressed():
+	if not GlobalGame.lance_initial:
+		GlobalGame.is_deleting = true
