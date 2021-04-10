@@ -38,12 +38,14 @@ func _process(delta):
 	if electrise:
 		if get_node("Zone_Electricite"):
 			electrise = false
-			for child in get_node("Zone_Electricite").get_overlapping_bodies():
+			modulate = Color(1,1,1)
+			for body in get_node("Zone_Electricite").get_overlapping_bodies():
 				# Pour les matériaux conducteurs
-				if child.get_node("Zone_Electricite"):
-					child.electrise = true
-					child.debut_electrisation = OS.get_ticks_msec()
+				if body.get_node("Zone_Electricite"):
+					body.electrise = true
+					modulate = Color(0.5,0,1)
+					body.debut_electrisation = OS.get_ticks_msec()
 				# Pour les elements de type moteur
-				if child.get("est_moteur"):
-					child.lancer()
+				if body.get("est_moteur"):
+					body.lancer()
 

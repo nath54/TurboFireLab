@@ -11,7 +11,7 @@ func _physics_process(delta):
 				# body.position += sens.rotated(rotation_degrees) * delta
 				# body.add_force(position, force*delta)
 				var fr = force.rotated(get_parent().rotation)
-				print(get_parent().rotation, force, fr)
+				# print(get_parent().rotation, force, fr)
 				body.apply_central_impulse(fr)
 				objets_sous_force[body] = force
 

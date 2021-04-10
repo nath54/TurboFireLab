@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://res/ui/console.png" type="Texture" id=20]
 [ext_resource path="res://res/ui/bt_size.png" type="Texture" id=21]
 [ext_resource path="res://res/bts/bt_ventilo.png" type="Texture" id=22]
+[ext_resource path="res://res/imgs/fond.png" type="Texture" id=23]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -37,6 +38,10 @@ margin_bottom = 733.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Menus"]
+position = Vector2( 644.485, 358.753 )
+texture = ExtResource( 23 )
 
 [node name="fps" type="Label" parent="Menus"]
 margin_left = 1.21997
@@ -62,6 +67,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="Menus/Menu_elements"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
@@ -215,15 +221,15 @@ __meta__ = {
 }
 
 [node name="bg_boutons" type="Sprite" parent="Menus/Bts"]
-position = Vector2( 171.095, 158.25 )
-scale = Vector2( 0.497062, 0.422038 )
+position = Vector2( 180.62, 157.456 )
+scale = Vector2( 0.536747, 0.418731 )
 texture = ExtResource( 16 )
 
 [node name="Bt_lancer" type="TextureButton" parent="Menus/Bts"]
-margin_left = 111.273
-margin_top = 107.205
-margin_right = 241.273
-margin_bottom = 237.205
+margin_left = 119.21
+margin_top = 108.792
+margin_right = 249.21
+margin_bottom = 238.792
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 17 )
@@ -234,10 +240,10 @@ __meta__ = {
 }
 
 [node name="Bt_recommencer" type="TextureButton" parent="Menus/Bts"]
-margin_left = 208.091
-margin_top = 72.4762
-margin_right = 264.091
-margin_bottom = 126.476
+margin_left = 222.378
+margin_top = 70.8888
+margin_right = 278.378
+margin_bottom = 124.889
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 14 )
@@ -249,15 +255,16 @@ __meta__ = {
 
 [node name="Console" type="Control" parent="Menus"]
 margin_left = 2.0
-margin_top = 522.0
+margin_top = 550.0
 margin_right = 1022.0
-margin_bottom = 722.0
+margin_bottom = 718.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="Menus/Console"]
-position = Vector2( 517.661, 100.708 )
+position = Vector2( 517.661, 83.7566 )
+scale = Vector2( 1, 0.830486 )
 texture = ExtResource( 20 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Menus/Console"]

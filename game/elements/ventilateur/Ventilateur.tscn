@@ -33,9 +33,11 @@ collision_mask = 0
 script = ExtResource( 10 )
 est_scalable = false
 
+[node name="Electronique" type="Node" parent="."]
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="ZoneVent" type="Area2D" parent="."]
