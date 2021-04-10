@@ -38,6 +38,7 @@ pointing/emulate_touch_from_mouse=true
 
 2d/physics_engine="GodotPhysics"
 2d/cell_size=16
+2d/default_gravity_vector=Vector2( 0, 2 )
 
 [rendering]
 
