@@ -41,4 +41,4 @@ func _process(delta):
 				# Pour les elements de type moteur
 				if child.get("est_moteur"):
 					child.lancer()
-			
+
