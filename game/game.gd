@@ -40,8 +40,11 @@ func _on_Bt_recommencer_pressed():
 	get_tree().change_scene("res://game/game.tscn")
 
 func _on_Bt_delete_pressed():
+	if GlobalGame.is_deleting:
+		GlobalGame.is_deleting = false
 	if not GlobalGame.lance_initial:
 		GlobalGame.is_deleting = true
+	$"Menus/Menu_elements/VBoxContainer/selected_delete".visible = GlobalGame.is_deleting
 
 func raj_el(bt, el, path):
 	if GlobalGame.lance_initial:
