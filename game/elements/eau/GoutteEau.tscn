@@ -7,9 +7,11 @@
 radius = 21.4476
 
 [node name="GoutteEau" type="Node2D"]
+position = Vector2( -0.059227, 0.00192261 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 5.00565, 2.00226 )
 collision_layer = 3
 collision_mask = 3
 
@@ -18,97 +20,97 @@ position = Vector2( -4.76758, -2.64865 )
 shape = SubResource( 1 )
 
 [node name="Eau" parent="." instance=ExtResource( 1 )]
-position = Vector2( -13.4376, -2.91652 )
+position = Vector2( -8.43195, -0.914261 )
 
 [node name="Eau2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.39494, 3.66853 )
+position = Vector2( 13.4006, 5.67079 )
 
 [node name="Eau3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -4.08072, -11.8389 )
+position = Vector2( 0.924927, -9.83664 )
 
 [node name="Eau4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -16.6915, -13.0204 )
+position = Vector2( -11.6859, -11.0181 )
 
 [node name="Eau5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -5.70263, 5.12667 )
+position = Vector2( -0.696983, 7.12893 )
 
 [node name="Eau6" parent="." instance=ExtResource( 1 )]
-position = Vector2( -8.04873, -18.7514 )
+position = Vector2( -3.04308, -16.7491 )
 
 [node name="Eau22" parent="." instance=ExtResource( 1 )]
-position = Vector2( -12.4681, -16.4533 )
+position = Vector2( -7.46245, -14.451 )
 
 [node name="Eau23" parent="." instance=ExtResource( 1 )]
-position = Vector2( -19.3624, -8.85191 )
+position = Vector2( -14.3568, -6.84965 )
 
 [node name="Eau24" parent="." instance=ExtResource( 1 )]
-position = Vector2( -19.3624, -8.85191 )
+position = Vector2( -14.3568, -6.84965 )
 
 [node name="Eau7" parent="." instance=ExtResource( 1 )]
-position = Vector2( -18.2274, 5.43335 )
+position = Vector2( -13.2218, 7.43561 )
 
 [node name="Eau27" parent="." instance=ExtResource( 1 )]
-position = Vector2( -19.8184, 1.72104 )
+position = Vector2( -14.8128, 3.7233 )
 
 [node name="Eau8" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11.7319, -10.1653 )
+position = Vector2( -6.72625, -8.16304 )
 
 [node name="Eau16" parent="." instance=ExtResource( 1 )]
-position = Vector2( -10.4324, 2.56356 )
+position = Vector2( -5.42675, 4.56582 )
 
 [node name="Eau17" parent="." instance=ExtResource( 1 )]
-position = Vector2( -5.3679, -3.09422 )
+position = Vector2( -0.362255, -1.09196 )
 
 [node name="Eau18" parent="." instance=ExtResource( 1 )]
-position = Vector2( -0.532893, 4.33132 )
+position = Vector2( 4.47275, 6.33358 )
 
 [node name="Eau19" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3.47095, -7.33687 )
+position = Vector2( 8.4766, -5.33461 )
 
 [node name="Eau20" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3.11739, -7.69042 )
+position = Vector2( 8.12304, -5.68816 )
 
 [node name="Eau9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -20.2841, -2.54167 )
+position = Vector2( -15.2785, -0.539412 )
 
 [node name="Eau25" parent="." instance=ExtResource( 1 )]
-position = Vector2( -15.6879, 8.59526 )
+position = Vector2( -10.6823, 10.5975 )
 
 [node name="Eau26" parent="." instance=ExtResource( 1 )]
-position = Vector2( -7.20265, 13.0147 )
+position = Vector2( -2.197, 15.017 )
 
 [node name="Eau10" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11.8828, 10.8704 )
+position = Vector2( -6.87716, 12.8727 )
 
 [node name="Eau11" parent="." instance=ExtResource( 1 )]
-position = Vector2( -3.04374, 13.099 )
+position = Vector2( 1.96191, 15.1013 )
 
 [node name="Eau12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4.1611, 9.58929 )
+position = Vector2( 9.16675, 11.5915 )
 
 [node name="Eau28" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.625562, 12.2409 )
+position = Vector2( 5.63121, 14.2432 )
 
 [node name="Eau29" parent="." instance=ExtResource( 1 )]
-position = Vector2( 7.51985, 7.46797 )
+position = Vector2( 12.5255, 9.47023 )
 
 [node name="Eau30" parent="." instance=ExtResource( 1 )]
-position = Vector2( 10.7018, 2.51822 )
+position = Vector2( 15.7074, 4.52048 )
 
 [node name="Eau31" parent="." instance=ExtResource( 1 )]
-position = Vector2( -3.08676, -18.1646 )
+position = Vector2( 1.91889, -16.1623 )
 
 [node name="Eau32" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2.03977, -16.7504 )
+position = Vector2( 7.04542, -14.7481 )
 
 [node name="Eau13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5.86969, -14.1409 )
+position = Vector2( 10.8753, -12.1386 )
 
 [node name="Eau14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 11.5505, -3.20424 )
+position = Vector2( 16.5561, -1.20198 )
 
 [node name="Eau15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9.18092, -10.226 )
+position = Vector2( 14.1866, -8.22374 )
 
 [node name="Eau21" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3.52406, -1.21036 )
+position = Vector2( 8.52971, 0.791899 )

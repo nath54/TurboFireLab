@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/elements/flamme/flamme.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/elements/barre/barre.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/elements/eau/GoutteEau.tscn" type="PackedScene" id=3]
 [ext_resource path="res://res/imgs/v462-n-130-textureidea_1.jpg" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 820.35, 430.607 )
 
 [node name="Scene" type="Node2D"]
 
@@ -17,52 +20,24 @@ texture = ExtResource( 4 )
 [node name="Flammes" type="Node2D" parent="."]
 
 [node name="Flamme" parent="Flammes" instance=ExtResource( 1 )]
-position = Vector2( 620.767, 328.502 )
-scale = Vector2( 0.4, 0.4 )
-
-[node name="Flamme2" parent="Flammes" instance=ExtResource( 1 )]
-position = Vector2( 244.349, 310.454 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 608.767, 438.502 )
 
 [node name="Elements" type="Node2D" parent="."]
 
 [node name="eau" type="Node2D" parent="Elements"]
 
 [node name="GoutteEau50" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 148.362, 109.659 )
+position = Vector2( 592.362, 229.659 )
 rotation = 2.98359
 
-[node name="GoutteEau9" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 151.032, 154.339 )
+[node name="objets" type="Node2D" parent="Elements"]
 
-[node name="GoutteEau40" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 131.502, 103.572 )
-rotation = 2.98359
+[node name="Barre2" parent="Elements/objets" instance=ExtResource( 2 )]
+position = Vector2( 600, 500 )
 
-[node name="GoutteEau20" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 113.062, 105.489 )
-rotation = 2.98359
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="GoutteEau56" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 136.856, 176.107 )
-rotation = 2.98359
-
-[node name="GoutteEau60" parent="Elements/eau" instance=ExtResource( 3 )]
-position = Vector2( 158.558, 72.9653 )
-rotation = 2.98359
-
-[node name="barres" type="Node2D" parent="Elements"]
-
-[node name="Barre" parent="Elements/barres" instance=ExtResource( 2 )]
-position = Vector2( 148.823, 256.05 )
-rotation = 1.0706
-scale = Vector2( 0.822791, 0.48567 )
-
-[node name="Barre5" parent="Elements/barres" instance=ExtResource( 2 )]
-position = Vector2( 697.277, 331.576 )
-rotation = 1.15416
-scale = Vector2( 0.338131, 1 )
-
-[node name="Barre2" parent="Elements/barres" instance=ExtResource( 2 )]
-position = Vector2( 489.867, 398.25 )
-rotation = -0.0715921
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 611.357, 381.764 )
+shape = SubResource( 1 )
+[connection signal="body_exited" from="Area2D" to="Flammes/Flamme" method="_on_Area2D_body_exited"]

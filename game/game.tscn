@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
 [ext_resource path="res://game/fps.gd" type="Script" id=3]
+[ext_resource path="res://res/bts/bt_eau.png" type="Texture" id=4]
+[ext_resource path="res://res/imgs/feu/feu_0.png" type="Texture" id=5]
+[ext_resource path="res://res/ui/turn150.png" type="Texture" id=6]
+[ext_resource path="res://res/ui/fleches.png" type="Texture" id=7]
+[ext_resource path="res://res/bts/bt_barre.png" type="Texture" id=8]
+[ext_resource path="res://res/bts/bt_feu.png" type="Texture" id=9]
 
 [node name="Jeu" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,41 +23,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_lancer" type="Button" parent="Menus"]
-margin_left = 25.5838
-margin_top = 27.7027
-margin_right = 110.584
-margin_bottom = 74.7027
-text = "lancer"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bt_recommencer" type="Button" parent="Menus"]
-margin_left = 127.284
-margin_top = 24.7762
-margin_right = 229.284
-margin_bottom = 79.7762
-text = "recommencer"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bt_delete" type="Button" parent="Menus"]
-margin_left = 255.0
-margin_top = 26.0
-margin_right = 332.0
-margin_bottom = 71.0
-text = "delete"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="fps" type="Label" parent="Menus"]
-margin_left = 1185.22
-margin_top = 20.7568
-margin_right = 1249.22
-margin_bottom = 51.7568
+margin_left = 1.21997
+margin_top = 4.7568
+margin_right = 65.22
+margin_bottom = 35.7568
 text = "fps : 0"
 align = 1
 valign = 1
@@ -59,6 +35,125 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Menus/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
-[connection signal="pressed" from="Menus/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
-[connection signal="pressed" from="Menus/Bt_delete" to="." method="_on_Bt_delete_pressed"]
+
+[node name="Rajouter Element" type="Control" parent="Menus"]
+margin_left = 909.0
+margin_top = 3.0
+margin_right = 1276.0
+margin_bottom = 494.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/Rajouter Element"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txt_mode" type="Label" parent="Menus/Rajouter Element/HBoxContainer"]
+margin_top = 18.0
+margin_right = 93.0
+margin_bottom = 32.0
+text = "mode : bouger"
+
+[node name="Bt_bouger" type="TextureButton" parent="Menus/Rajouter Element/HBoxContainer"]
+margin_left = 97.0
+margin_right = 147.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+
+[node name="Bt_rotate" type="TextureButton" parent="Menus/Rajouter Element/HBoxContainer"]
+margin_left = 151.0
+margin_right = 201.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+expand = true
+
+[node name="Bt_delete" type="Button" parent="Menus/Rajouter Element/HBoxContainer"]
+margin_left = 205.0
+margin_right = 258.0
+margin_bottom = 50.0
+text = "delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Menus/Rajouter Element"]
+margin_top = 55.0
+margin_right = 365.0
+margin_bottom = 467.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_eau" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="Bt_feu" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 5 )
+expand = true
+
+[node name="Bt_barre" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+expand = true
+
+[node name="Bts" type="Control" parent="Menus"]
+margin_left = 873.0
+margin_top = 487.0
+margin_right = 1276.0
+margin_bottom = 718.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_lancer" type="Button" parent="Menus/Bts"]
+margin_left = 94.4501
+margin_top = 58.3049
+margin_right = 179.45
+margin_bottom = 105.305
+text = "lancer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_recommencer" type="Button" parent="Menus/Bts"]
+margin_left = 227.263
+margin_top = 52.5499
+margin_right = 329.263
+margin_bottom = 107.55
+text = "recommencer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_bouger" to="." method="_on_Bt_bouger_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_rotate" to="." method="_on_Bt_rotate_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_delete" to="." method="_on_Bt_delete_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_eau" to="." method="_on_bt_eau_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_feu" to="." method="_on_Bt_feu_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_barre" to="." method="_on_Bt_barre_pressed"]
+[connection signal="pressed" from="Menus/Bts/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
+[connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]

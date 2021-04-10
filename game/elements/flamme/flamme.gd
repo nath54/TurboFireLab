@@ -17,7 +17,6 @@ func _on_Area2D_body_entered(body):
 		get_parent().get_parent().get_parent().test_gagne();
 		queue_free();
 
-
 # partie pour le drag
 var dragging = false
 var radius = 21
@@ -32,4 +31,12 @@ func _input(event):
 	if event is InputEventMouseButton and not event.pressed:
 		dragging = false
 	if not GlobalGame.lance_initial and dragging and event is InputEventMouseMotion:
-		position += event.relative
+		if GlobalGame.mode == 1:
+			position += event.relative
+		elif GlobalGame.mode == 2:
+			var d = event.relative
+			rotation_degrees += d.x + d.y
+
+# Pour enlever les trucs inutiles
+func _on_Area2D_body_exited(body):
+	body.queue_free()
