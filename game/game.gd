@@ -16,12 +16,12 @@ func test_gagne():
 
 func _on_Bt_lancer_pressed():
 	if not GlobalGame.lance:
-		$Menus/Bts/Bt_lancer.text = "pause"
+		# $Menus/Bts/Bt_lancer.text = "pause"
 		Physics2DServer.set_active(true)
 		GlobalGame.lance=true
 		GlobalGame.lance_initial = true
 	else:
-		$Menus/Bts/Bt_lancer.text = "lancer"
+		# $Menus/Bts/Bt_lancer.text = "lancer"
 		Physics2DServer.set_active(false)
 		GlobalGame.lance=false
 

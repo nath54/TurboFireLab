@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://res/bts/bt_feu.png" type="Texture" id=9]
 [ext_resource path="res://res/bts/bt_block_dur.png" type="Texture" id=10]
 [ext_resource path="res://res/bts/bt_planche_bois.png" type="Texture" id=11]
+[ext_resource path="res://res/ui/bt_rouge_base.png" type="Texture" id=12]
+[ext_resource path="res://res/ui/bt_rouge_pressed.png" type="Texture" id=13]
+[ext_resource path="res://res/ui/bt_bleu_base.png" type="Texture" id=14]
+[ext_resource path="res://res/ui/bt_bleu_pressed.png" type="Texture" id=15]
+[ext_resource path="res://res/ui/bg_boutons.png" type="Texture" id=16]
+[ext_resource path="res://res/ui/bt_rouge_hover.png" type="Texture" id=17]
 
 [node name="Jeu" type="Node2D"]
 script = ExtResource( 2 )
@@ -153,22 +159,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_lancer" type="Button" parent="Menus/Bts"]
-margin_left = 94.4501
-margin_top = 58.3049
-margin_right = 179.45
-margin_bottom = 105.305
-text = "lancer"
+[node name="bg_boutons" type="Sprite" parent="Menus/Bts"]
+position = Vector2( 283.086, 109.187 )
+scale = Vector2( 0.48582, 0.48582 )
+texture = ExtResource( 16 )
+
+[node name="Bt_lancer" type="TextureButton" parent="Menus/Bts"]
+margin_left = 213.542
+margin_top = 50.1428
+margin_right = 350.542
+margin_bottom = 187.143
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 17 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_recommencer" type="Button" parent="Menus/Bts"]
-margin_left = 227.263
-margin_top = 52.5499
-margin_right = 329.263
-margin_bottom = 107.55
-text = "recommencer"
+[node name="Bt_recommencer" type="TextureButton" parent="Menus/Bts"]
+margin_left = 321.684
+margin_top = 19.8775
+margin_right = 372.684
+margin_bottom = 68.8775
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
