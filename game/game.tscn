@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -17,6 +17,12 @@
 [ext_resource path="res://res/ui/bt_bleu_pressed.png" type="Texture" id=15]
 [ext_resource path="res://res/ui/bg_boutons.png" type="Texture" id=16]
 [ext_resource path="res://res/ui/bt_rouge_hover.png" type="Texture" id=17]
+[ext_resource path="res://res/font/rainyhearts_2.tres" type="DynamicFont" id=18]
+[ext_resource path="res://res/font/rainyhearts_4.tres" type="DynamicFont" id=19]
+[ext_resource path="res://res/ui/console.png" type="Texture" id=20]
+[ext_resource path="res://res/ui/bt_size.png" type="Texture" id=21]
+
+[sub_resource type="StyleBoxFlat" id=1]
 
 [node name="Jeu" type="Node2D"]
 script = ExtResource( 2 )
@@ -36,6 +42,7 @@ margin_left = 1.21997
 margin_top = 4.7568
 margin_right = 65.22
 margin_bottom = 35.7568
+custom_fonts/font = ExtResource( 19 )
 text = "fps : 0"
 align = 1
 valign = 1
@@ -44,39 +51,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rajouter Element" type="Control" parent="Menus"]
-margin_left = 909.0
-margin_top = 3.0
-margin_right = 1276.0
-margin_bottom = 494.0
+[node name="Menu_elements" type="Control" parent="Menus"]
+margin_left = 1015.0
+margin_top = -1.0
+margin_right = 1265.0
+margin_bottom = 519.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/Rajouter Element"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Panel" type="Panel" parent="Menus/Menu_elements"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Menu_elements"]
+margin_left = 13.0
+margin_right = 235.0
+margin_bottom = 95.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="txt_mode" type="Label" parent="Menus/Rajouter Element/HBoxContainer"]
-margin_top = 18.0
-margin_right = 93.0
-margin_bottom = 32.0
-text = "mode : bouger"
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/Menu_elements/VBoxContainer"]
+margin_right = 222.0
+margin_bottom = 50.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bt_bouger" type="TextureButton" parent="Menus/Rajouter Element/HBoxContainer"]
-margin_left = 97.0
-margin_right = 147.0
+[node name="txt_mode" type="Label" parent="Menus/Menu_elements/VBoxContainer/HBoxContainer"]
+margin_left = 7.0
+margin_top = 15.0
+margin_right = 60.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 18 )
+text = "bouger"
+
+[node name="Bt_bouger" type="TextureButton" parent="Menus/Menu_elements/VBoxContainer/HBoxContainer"]
+margin_left = 64.0
+margin_right = 114.0
 margin_bottom = 50.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 7 )
 
-[node name="Bt_rotate" type="TextureButton" parent="Menus/Rajouter Element/HBoxContainer"]
-margin_left = 151.0
-margin_right = 201.0
+[node name="Bt_rotate" type="TextureButton" parent="Menus/Menu_elements/VBoxContainer/HBoxContainer"]
+margin_left = 118.0
+margin_right = 168.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 6 )
@@ -84,91 +107,110 @@ texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
 expand = true
 
-[node name="Bt_delete" type="Button" parent="Menus/Rajouter Element/HBoxContainer"]
-margin_left = 205.0
-margin_right = 258.0
+[node name="Bt_scale" type="TextureButton" parent="Menus/Menu_elements/VBoxContainer/HBoxContainer"]
+margin_left = 172.0
+margin_right = 222.0
 margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 21 )
+expand = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/Menu_elements/VBoxContainer"]
+margin_top = 54.0
+margin_right = 222.0
+margin_bottom = 79.0
+alignment = 2
+
+[node name="Bt_delete" type="Button" parent="Menus/Menu_elements/VBoxContainer/HBoxContainer2"]
+margin_left = 162.0
+margin_right = 222.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 18 )
 text = "delete"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="Menus/Rajouter Element"]
-margin_top = 55.0
-margin_right = 365.0
-margin_bottom = 467.0
-columns = 3
+[node name="GridContainer" type="GridContainer" parent="Menus/Menu_elements"]
+margin_left = 22.0
+margin_top = 95.0
+margin_right = 234.0
+margin_bottom = 503.0
+columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_eau" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
-margin_right = 100.0
-margin_bottom = 100.0
+[node name="Bt_eau" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
+expand = true
 
-[node name="Bt_feu" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Bt_feu" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 5 )
 expand = true
 
-[node name="Bt_barre" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Bt_barre" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
 expand = true
 
-[node name="Bt_block" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
-margin_top = 104.0
-margin_right = 100.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Bt_block" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 162.0
+margin_right = 212.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 0 )
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 10 )
 expand = true
 
-[node name="Bt_planche" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
-margin_left = 104.0
-margin_top = 104.0
-margin_right = 204.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 100, 100 )
+[node name="Bt_planche" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_top = 54.0
+margin_right = 50.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
 expand = true
 
 [node name="Bts" type="Control" parent="Menus"]
-margin_left = 873.0
-margin_top = 487.0
-margin_right = 1276.0
+margin_left = 972.0
+margin_top = 465.0
+margin_right = 1262.0
 margin_bottom = 718.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bg_boutons" type="Sprite" parent="Menus/Bts"]
-position = Vector2( 283.086, 109.187 )
-scale = Vector2( 0.48582, 0.48582 )
+position = Vector2( 171.095, 158.25 )
+scale = Vector2( 0.497062, 0.422038 )
 texture = ExtResource( 16 )
 
 [node name="Bt_lancer" type="TextureButton" parent="Menus/Bts"]
-margin_left = 213.542
-margin_top = 50.1428
-margin_right = 350.542
-margin_bottom = 187.143
+margin_left = 111.273
+margin_top = 107.205
+margin_right = 241.273
+margin_bottom = 237.205
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 17 )
@@ -179,10 +221,10 @@ __meta__ = {
 }
 
 [node name="Bt_recommencer" type="TextureButton" parent="Menus/Bts"]
-margin_left = 321.684
-margin_top = 19.8775
-margin_right = 372.684
-margin_bottom = 68.8775
+margin_left = 208.091
+margin_top = 72.4762
+margin_right = 264.091
+margin_bottom = 126.476
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 14 )
@@ -191,13 +233,39 @@ stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_bouger" to="." method="_on_Bt_bouger_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_rotate" to="." method="_on_Bt_rotate_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/HBoxContainer/Bt_delete" to="." method="_on_Bt_delete_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_eau" to="." method="_on_bt_eau_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_feu" to="." method="_on_Bt_feu_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_barre" to="." method="_on_Bt_barre_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_block" to="." method="_on_Bt_block_pressed"]
-[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_planche" to="." method="_on_Bt_planche_pressed"]
+
+[node name="Console" type="Control" parent="Menus"]
+margin_left = 2.0
+margin_top = 522.0
+margin_right = 1022.0
+margin_bottom = 722.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Menus/Console"]
+position = Vector2( 517.661, 100.708 )
+texture = ExtResource( 20 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/Console"]
+margin_left = 33.0
+margin_top = 25.0
+margin_right = 966.0
+margin_bottom = 189.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Console_Messages" type="VBoxContainer" parent="Menus/Console/ScrollContainer"]
+[connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_bouger" to="." method="_on_Bt_bouger_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_rotate" to="." method="_on_Bt_rotate_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_scale" to="." method="_on_Bt_scale_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer2/Bt_delete" to="." method="_on_Bt_delete_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_eau" to="." method="_on_bt_eau_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_feu" to="." method="_on_Bt_feu_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_barre" to="." method="_on_Bt_barre_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_block" to="." method="_on_Bt_block_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_planche" to="." method="_on_Bt_planche_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]

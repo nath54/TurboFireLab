@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://game/elements/block_dur/block_dur.gd" type="Script" id=1]
+[ext_resource path="res://game/elements/element.gd" type="Script" id=1]
 [ext_resource path="res://res/imgs/rien.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,7 +11,6 @@ extents = Vector2( 1, 1 )
 
 [node name="Block_dur" type="StaticBody2D"]
 position = Vector2( 0.749153, 0 )
-scale = Vector2( 2, 2 )
 input_pickable = true
 script = ExtResource( 1 )
 

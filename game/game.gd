@@ -1,9 +1,17 @@
 extends Node2D
 
 func _ready():
+	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "bouger"
+	GlobalGame.is_deleting = false
+	GlobalGame.est_placer = false
+	GlobalGame.img_place = null
+	GlobalGame.mode = 1
 	GlobalGame.lance=false
 	GlobalGame.lance_initial=false
 	Physics2DServer.set_active(false)
+	#
+	console_mes("> System loading ...")
+	console_mes("> Loading complete.")
 
 func test_gagne():
 	# Cette méthode est appelée lorsqu'on éteint une flamme
@@ -45,25 +53,39 @@ func raj_el(bt, el, path):
 	GlobalGame.est_placer = true
 	$Scene.add_child(GlobalGame.img_place)
 
+func console_mes(message):
+	var mes = Label.new()
+	mes.text = message
+	mes.autowrap = true
+	mes.rect_min_size = Vector2(800,20)
+	mes.add_font_override("font", load("res://res/font/rainyhearts_2.tres"))
+	$Menus/Console/ScrollContainer/Console_Messages.add_child(mes)
+
 func _on_Bt_bouger_pressed():
 	GlobalGame.mode = 1
-	$"Menus/Rajouter Element/HBoxContainer/txt_mode".text = "mode : bouger"
+	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "bouger"
 
 func _on_Bt_rotate_pressed():
 	GlobalGame.mode = 2
-	$"Menus/Rajouter Element/HBoxContainer/txt_mode".text = "mode : rotation"
+	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "rotation"
+
+func _on_Bt_scale_pressed():
+	GlobalGame.mode = 3
+	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "scale"
 
 func _on_bt_eau_pressed():
-	raj_el($"Menus/Rajouter Element/GridContainer/Bt_eau", preload("res://game/elements/eau/GoutteEau.tscn"), "Elements/eau")
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_eau", preload("res://game/elements/eau/GoutteEau.tscn"), "Elements/eau")
 
 func _on_Bt_feu_pressed():
-	raj_el($"Menus/Rajouter Element/GridContainer/Bt_feu", preload("res://game/elements/flamme/flamme.tscn"), "Flammes")
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_feu", preload("res://game/elements/flamme/flamme.tscn"), "Flammes")
 
 func _on_Bt_barre_pressed():
-	raj_el($"Menus/Rajouter Element/GridContainer/Bt_barre", preload("res://game/elements/barre/barre.tscn"), "Elements/objets")
-
-func _on_Bt_planche_pressed():
-	raj_el($"Menus/Rajouter Element/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets")
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_barre", preload("res://game/elements/barre/barre.tscn"), "Elements/objets")
 
 func _on_Bt_block_pressed():
-	raj_el($"Menus/Rajouter Element/GridContainer/Bt_block", preload("res://game/elements/block_dur/block_dur.tscn"), "Elements/objets")
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_block", preload("res://game/elements/block_dur/block_dur.tscn"), "Elements/objets")
+
+func _on_Bt_planche_pressed():
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets")
+
+

@@ -1,18 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://game/elements/flamme/flamme.gd" type="Script" id=1]
+[ext_resource path="res://game/elements/element.gd" type="Script" id=1]
 [ext_resource path="res://res/imgs/dot.png" type="Texture" id=2]
 [ext_resource path="res://game/elements/flamme/flamme.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://game/elements/flamme/Area2D.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 40.3847
+radius = 50.0
 
 [node name="Flamme" type="Node2D"]
 scale = Vector2( 1, 1.04809 )
 script = ExtResource( 1 )
+est_tournable = false
+est_scalable = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -8, -9.54113 )
+z_index = 10
+z_as_relative = false
+shape = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 0, -5 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 texture_scale = 7.0
 color = Color( 0.980392, 0.705882, 0.054902, 1 )
@@ -20,16 +33,20 @@ energy = 1.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 0
-position = Vector2( -0.8909, -17.6029 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 0.1091, -10.9241 )
+scale = Vector2( 0.2, 0.2 )
 frames = ExtResource( 3 )
 frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1, 6.67879 )
 scale = Vector2( 0.4, 0.4 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -1.16779, -2.01057 )
+position = Vector2( -1.51855, -21.087 )
+scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 1 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/elements/eau/Eau.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/elements/eau/GoutteEau.gd" type="Script" id=2]
+[ext_resource path="res://game/elements/element.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.4476
@@ -9,108 +12,104 @@ radius = 21.4476
 [node name="GoutteEau" type="Node2D"]
 position = Vector2( -0.059227, 0.00192261 )
 script = ExtResource( 2 )
+est_tournable = false
+est_scalable = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -10, -10 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 10
+z_as_relative = false
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 5.00565, 2.00226 )
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -4.76758, -2.64865 )
 shape = SubResource( 1 )
 
-[node name="Eau" parent="." instance=ExtResource( 1 )]
-position = Vector2( -8.43195, -0.914261 )
+[node name="Eau" type="Node2D" parent="."]
 
-[node name="Eau2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 13.4006, 5.67079 )
+[node name="Eau10" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -6.54609, 4.4031 )
 
-[node name="Eau3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.924927, -9.83664 )
+[node name="Eau29" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -3.12315, 7.16281 )
 
-[node name="Eau4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -11.6859, -11.0181 )
+[node name="Eau11" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 3.61056, 7.11142 )
 
-[node name="Eau5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -0.696983, 7.12893 )
+[node name="Eau28" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 6.63121, 5.35467 )
 
-[node name="Eau6" parent="." instance=ExtResource( 1 )]
-position = Vector2( -3.04308, -16.7491 )
+[node name="Eau12" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 8.02822, 1.8415 )
 
-[node name="Eau22" parent="." instance=ExtResource( 1 )]
-position = Vector2( -7.46245, -14.451 )
+[node name="Eau30" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 6.04522, -5.42884 )
 
-[node name="Eau23" parent="." instance=ExtResource( 1 )]
-position = Vector2( -14.3568, -6.84965 )
+[node name="Eau32" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -0.434301, -8.08254 )
 
-[node name="Eau24" parent="." instance=ExtResource( 1 )]
-position = Vector2( -14.3568, -6.84965 )
+[node name="Eau21" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 4.40471, 0.041899 )
 
-[node name="Eau7" parent="." instance=ExtResource( 1 )]
-position = Vector2( -13.2218, 7.43561 )
+[node name="Eau15" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 8.4366, -2.09874 )
 
-[node name="Eau27" parent="." instance=ExtResource( 1 )]
-position = Vector2( -14.8128, 3.7233 )
+[node name="Eau14" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 0.806101, 5.79802 )
 
-[node name="Eau8" parent="." instance=ExtResource( 1 )]
-position = Vector2( -6.72625, -8.16304 )
+[node name="Eau13" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -4.25982, -7.06765 )
 
-[node name="Eau16" parent="." instance=ExtResource( 1 )]
-position = Vector2( -5.42675, 4.56582 )
+[node name="Eau26" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -0.0889049, 7.97645 )
 
-[node name="Eau17" parent="." instance=ExtResource( 1 )]
+[node name="Eau25" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -7.6823, 2.0975 )
+
+[node name="Eau9" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -5.41029, 5.66999 )
+
+[node name="Eau20" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 4.74804, -4.31316 )
+
+[node name="Eau19" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 3.93267, 3.24983 )
+
+[node name="Eau18" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 2.22275, -0.54142 )
+
+[node name="Eau17" parent="Eau" instance=ExtResource( 1 )]
 position = Vector2( -0.362255, -1.09196 )
 
-[node name="Eau18" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4.47275, 6.33358 )
+[node name="Eau16" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -3.05175, 2.69082 )
 
-[node name="Eau19" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.4766, -5.33461 )
+[node name="Eau8" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -3.10125, -4.91304 )
 
-[node name="Eau20" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.12304, -5.68816 )
+[node name="Eau27" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -6.6878, -4.2767 )
 
-[node name="Eau9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -15.2785, -0.539412 )
+[node name="Eau7" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -8.13057, -1.01709 )
 
-[node name="Eau25" parent="." instance=ExtResource( 1 )]
-position = Vector2( -10.6823, 10.5975 )
+[node name="Eau6" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 3.44343, -7.35719 )
 
-[node name="Eau26" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.197, 15.017 )
+[node name="Eau5" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 1.05302, 2.37893 )
 
-[node name="Eau10" parent="." instance=ExtResource( 1 )]
-position = Vector2( -6.87716, 12.8727 )
+[node name="Eau3" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 0.799927, -5.08664 )
 
-[node name="Eau11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1.96191, 15.1013 )
+[node name="Eau2" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( 5.41747, 2.04916 )
 
-[node name="Eau12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 9.16675, 11.5915 )
-
-[node name="Eau28" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5.63121, 14.2432 )
-
-[node name="Eau29" parent="." instance=ExtResource( 1 )]
-position = Vector2( 12.5255, 9.47023 )
-
-[node name="Eau30" parent="." instance=ExtResource( 1 )]
-position = Vector2( 15.7074, 4.52048 )
-
-[node name="Eau31" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1.91889, -16.1623 )
-
-[node name="Eau32" parent="." instance=ExtResource( 1 )]
-position = Vector2( 7.04542, -14.7481 )
-
-[node name="Eau13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 10.8753, -12.1386 )
-
-[node name="Eau14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16.5561, -1.20198 )
-
-[node name="Eau15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 14.1866, -8.22374 )
-
-[node name="Eau21" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8.52971, 0.791899 )
+[node name="Eau" parent="Eau" instance=ExtResource( 1 )]
+position = Vector2( -4.93195, -0.789261 )
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
