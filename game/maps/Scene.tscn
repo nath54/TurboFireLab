@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/elements/flamme/flamme.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/elements/barre/barre.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/maps/Scene.gd" type="Script" id=3]
+[ext_resource path="res://res/ui/bg.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 507.798, 266.127 )
@@ -24,6 +25,11 @@ margin_bottom = 725.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Bg"]
+position = Vector2( 510.042, 275.645 )
+scale = Vector2( 4.05286, 3.68241 )
+texture = ExtResource( 4 )
 
 [node name="Flammes" type="Node2D" parent="."]
 

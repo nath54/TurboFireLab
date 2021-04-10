@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ventilo_6.png-3624afd33cd0da7e5862d1ac8d747044.stex"
+path="res://.import/bin_pressed.png-e361823cceb87ce8ee36124a2488eb36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/imgs/ventilo/ventilo_6.png"
-dest_files=[ "res://.import/ventilo_6.png-3624afd33cd0da7e5862d1ac8d747044.stex" ]
+source_file="res://res/ui/bin_pressed.png"
+dest_files=[ "res://.import/bin_pressed.png-e361823cceb87ce8ee36124a2488eb36.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ventilo_5.png-321c62bb48e179c65f202ea26696bc83.stex"
+path="res://.import/bt_vert_base.png-77070f7a3d501691e5d7ba0e0c6bd9f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/imgs/ventilo/ventilo_5.png"
-dest_files=[ "res://.import/ventilo_5.png-321c62bb48e179c65f202ea26696bc83.stex" ]
+source_file="res://res/ui/bt_vert_base.png"
+dest_files=[ "res://.import/bt_vert_base.png-77070f7a3d501691e5d7ba0e0c6bd9f6.stex" ]
 
 [params]
 

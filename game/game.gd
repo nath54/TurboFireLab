@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready():
-	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "bouger"
+	$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
+	$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
+	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
 	GlobalGame.is_deleting = false
 	GlobalGame.est_placer = false
 	GlobalGame.img_place = null
@@ -23,6 +25,7 @@ func test_gagne():
 	# Sinon, on ne fait rien
 
 func _on_Bt_lancer_pressed():
+	$Scene.save_beginning()
 	if not GlobalGame.lance:
 		# $Menus/Bts/Bt_lancer.text = "pause"
 		Physics2DServer.set_active(true)
@@ -61,17 +64,32 @@ func console_mes(message):
 	mes.add_font_override("font", load("res://res/font/rainyhearts_2.tres"))
 	$Menus/Console/ScrollContainer/Console_Messages.add_child(mes)
 
+func _on_Bt_restart_pressed():
+	load_from_begining()
+
+func load_from_begining():
+	var scene = $Scene.scene
+	$Scene.queue_free()
+	var s = scene.instance()
+	add_child(s)
+
 func _on_Bt_bouger_pressed():
 	GlobalGame.mode = 1
-	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "bouger"
+	$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
+	$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
+	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
 
 func _on_Bt_rotate_pressed():
 	GlobalGame.mode = 2
-	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "rotation"
+	$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = false
+	$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = true
+	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
 
 func _on_Bt_scale_pressed():
 	GlobalGame.mode = 3
-	$"Menus/Menu_elements/VBoxContainer/HBoxContainer/txt_mode".text = "scale"
+	$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = false
+	$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
+	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = true
 
 func _on_bt_eau_pressed():
 	raj_el($"Menus/Menu_elements/GridContainer/Bt_eau", preload("res://game/elements/eau/GoutteEau.tscn"), "Elements/eau")
@@ -90,3 +108,4 @@ func _on_Bt_planche_pressed():
 
 func _on_Bt_ventilateur_pressed():
 	raj_el($"Menus/Menu_elements/GridContainer/Bt_ventilateur", preload("res://game/elements/ventilateur/Ventilateur.tscn"), "Elements/objets")
+
