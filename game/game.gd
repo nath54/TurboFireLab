@@ -33,6 +33,8 @@ func _on_Bt_delete_pressed():
 		GlobalGame.is_deleting = true
 
 func raj_el(bt, el, path):
+	if GlobalGame.lance_initial:
+		return
 	if GlobalGame.est_placer:
 		GlobalGame.img_place.queue_free()
 	var r = preload("res://game/ui/sprite_place.tscn")
@@ -60,3 +62,8 @@ func _on_Bt_feu_pressed():
 func _on_Bt_barre_pressed():
 	raj_el($"Menus/Rajouter Element/GridContainer/Bt_barre", preload("res://game/elements/barre/barre.tscn"), "Elements/objets")
 
+func _on_Bt_planche_pressed():
+	raj_el($"Menus/Rajouter Element/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets")
+
+func _on_Bt_block_pressed():
+	raj_el($"Menus/Rajouter Element/GridContainer/Bt_block", preload("res://game/elements/block_dur/block_dur.tscn"), "Elements/objets")

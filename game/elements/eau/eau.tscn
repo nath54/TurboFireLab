@@ -6,7 +6,6 @@
 radius = 27.4477
 
 [node name="Eau" type="RigidBody2D"]
-mass = 3.0
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

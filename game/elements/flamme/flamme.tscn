@@ -8,6 +8,7 @@
 radius = 40.3847
 
 [node name="Flamme" type="Node2D"]
+scale = Vector2( 1, 1.04809 )
 script = ExtResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -22,7 +23,7 @@ light_mask = 0
 position = Vector2( -0.8909, -17.6029 )
 scale = Vector2( 0.4, 0.4 )
 frames = ExtResource( 3 )
-frame = 7
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

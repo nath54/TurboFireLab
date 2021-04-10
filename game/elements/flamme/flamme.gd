@@ -35,7 +35,7 @@ func _input(event):
 			position += event.relative
 		elif GlobalGame.mode == 2:
 			var d = event.relative
-			rotation_degrees += d.x + d.y
+			rotation_degrees += d.y
 
 # Pour enlever les trucs inutiles
 func _on_Area2D_body_exited(body):

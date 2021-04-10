@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://res/ui/fleches.png" type="Texture" id=7]
 [ext_resource path="res://res/bts/bt_barre.png" type="Texture" id=8]
 [ext_resource path="res://res/bts/bt_feu.png" type="Texture" id=9]
+[ext_resource path="res://res/bts/bt_block_dur.png" type="Texture" id=10]
+[ext_resource path="res://res/bts/bt_planche_bois.png" type="Texture" id=11]
 
 [node name="Jeu" type="Node2D"]
 script = ExtResource( 2 )
@@ -121,6 +123,27 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 8 )
 expand = true
 
+[node name="Bt_block" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
+margin_top = 104.0
+margin_right = 100.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+expand = true
+
+[node name="Bt_planche" type="TextureButton" parent="Menus/Rajouter Element/GridContainer"]
+margin_left = 104.0
+margin_top = 104.0
+margin_right = 204.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+expand = true
+
 [node name="Bts" type="Control" parent="Menus"]
 margin_left = 873.0
 margin_top = 487.0
@@ -155,5 +178,7 @@ __meta__ = {
 [connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_eau" to="." method="_on_bt_eau_pressed"]
 [connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_feu" to="." method="_on_Bt_feu_pressed"]
 [connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_barre" to="." method="_on_Bt_barre_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_block" to="." method="_on_Bt_block_pressed"]
+[connection signal="pressed" from="Menus/Rajouter Element/GridContainer/Bt_planche" to="." method="_on_Bt_planche_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]

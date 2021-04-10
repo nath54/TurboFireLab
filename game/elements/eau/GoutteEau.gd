@@ -17,5 +17,5 @@ func _input(event):
 			position += event.relative
 		elif GlobalGame.mode == 2:
 			var d = event.relative
-			rotation_degrees += d.x + d.y
+			rotation_degrees += d.y
 
