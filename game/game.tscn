@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://game/maps/Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://res/font/rainyhearts_4.tres" type="DynamicFont" id=19]
 [ext_resource path="res://res/ui/console.png" type="Texture" id=20]
 [ext_resource path="res://res/ui/bt_size.png" type="Texture" id=21]
+[ext_resource path="res://res/bts/bt_ventilo.png" type="Texture" id=22]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -136,9 +137,9 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="Menus/Menu_elements"]
 margin_left = 22.0
 margin_top = 95.0
-margin_right = 234.0
+margin_right = 208.0
 margin_bottom = 503.0
-columns = 4
+columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -173,9 +174,9 @@ texture_hover = ExtResource( 8 )
 expand = true
 
 [node name="Bt_block" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
-margin_left = 162.0
-margin_right = 212.0
-margin_bottom = 50.0
+margin_top = 54.0
+margin_right = 50.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 50, 0 )
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 10 )
@@ -183,13 +184,25 @@ texture_hover = ExtResource( 10 )
 expand = true
 
 [node name="Bt_planche" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 54.0
 margin_top = 54.0
-margin_right = 50.0
+margin_right = 104.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
+expand = true
+
+[node name="Bt_ventilateur" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 108.0
+margin_top = 54.0
+margin_right = 158.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 22 )
 expand = true
 
 [node name="Bts" type="Control" parent="Menus"]
@@ -267,5 +280,6 @@ __meta__ = {
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_barre" to="." method="_on_Bt_barre_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_block" to="." method="_on_Bt_block_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_planche" to="." method="_on_Bt_planche_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_ventilateur" to="." method="_on_Bt_ventilateur_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]

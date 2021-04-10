@@ -88,4 +88,5 @@ func _on_Bt_block_pressed():
 func _on_Bt_planche_pressed():
 	raj_el($"Menus/Menu_elements/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets")
 
-
+func _on_Bt_ventilateur_pressed():
+	raj_el($"Menus/Menu_elements/GridContainer/Bt_ventilateur", preload("res://game/elements/ventilateur/Ventilateur.tscn"), "Elements/objets")

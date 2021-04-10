@@ -5,8 +5,13 @@ export var est_tournable : bool = true
 export var est_scalable : bool = true
 export var electrise : bool = false
 export var effets_vent : bool = false
+export var obj_friction : float = 1
 
 var debut_electrisation = 0
+
+func _ready():
+	if get_node(".") is PhysicsBody2D: 
+		get_node(".").set_friction(obj_friction)
 
 # partie pour le drag
 var dragging = false

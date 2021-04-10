@@ -27,12 +27,15 @@ extents = Vector2( 89.7046, 47.6519 )
 radius = 30.0
 height = 25.0
 
-[node name="Ventilateur" type="Node2D"]
+[node name="Ventilateur" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 10 )
+est_scalable = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="ZoneVent" type="Area2D" parent="."]
