@@ -654,6 +654,7 @@ __meta__ = {
 [node name="Data_Messages" type="VBoxContainer" parent="Menus/Console/Data/ScrollContainer3"]
 
 [node name="Menu" type="Control" parent="Menus/Console"]
+visible = false
 margin_left = 37.0
 margin_top = 42.0
 margin_right = 992.0
@@ -733,6 +734,8 @@ margin_left = 0.890869
 margin_top = 64.0
 margin_right = 239.891
 margin_bottom = 114.0
+custom_icons/grabber_disabled = ExtResource( 44 )
+custom_icons/grabber_highlight = ExtResource( 44 )
 custom_icons/grabber = ExtResource( 44 )
 custom_styles/slider = SubResource( 5 )
 custom_styles/grabber_area = SubResource( 6 )

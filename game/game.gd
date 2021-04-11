@@ -33,6 +33,9 @@ func _ready():
 	#
 	console_mes("> System loading ...")
 	console_mes("> Loading complete.")
+	console_mes("Bienvenue dans ce jeu !")
+	console_mes("Le but de ce jeu est d'éteindre le feu dans la scène de diverses manières, mais surtout, le principal, c'est de vous amuser avec les objets a votre disposition.")
+	console_mes("Bonne partie !")
 	# On s'occupe des succes
 	$Succes.load_succes()
 	$Succes.aff_succes()
