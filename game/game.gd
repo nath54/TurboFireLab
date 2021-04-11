@@ -201,10 +201,8 @@ func _on_Bt_menu_pressed():
 	$Menus/Console/Bt_data.modulate = Color(1,1,1)
 	$Menus/Console/Bt_menu.modulate = Color(0,1,0)
 
-
 func _on_Bt_credits_pressed():
 	get_tree().change_scene("res://menus/Credits.tscn")
-
 
 func _on_Bt_quitter_pressed():
 	get_tree().quit()
@@ -223,7 +221,6 @@ func raj_el(bt, el, path, variable_to_reduce):
 	GlobalGame.img_place.variable_to_reduce = variable_to_reduce
 	GlobalGame.est_placer = true
 	GlobalGame.scene.add_child(GlobalGame.img_place)
-
 
 func _on_bt_eau_pressed():
 	if GlobalGame.restants_goutte_eau == -1 or GlobalGame.restants_goutte_eau >= 1:
@@ -264,3 +261,7 @@ func _on_Bt_laser_chaud_pressed():
 func _on_Bt_seau_pressed():
 	if GlobalGame.restants_seau == -1 or GlobalGame.restants_seau >= 1:
 		raj_el($"Menus/Menu_elements/GridContainer/Bt_seau", preload("res://game/elements/seau/Seau.tscn"), "Elements/objets", "restants_seau")
+
+func _on_HSlider_value_changed(value:float):
+	Music.volume_db = -80 + value
+	Music.get_node("Effets").volume_db = -80 + value
