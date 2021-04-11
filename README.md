@@ -1,24 +1,4 @@
-# jam_9_avril
+# Turbo Fire Lab
 
-
-
-## Idées
-
-Extinction des feux
-
-Casses têtes
-
-On doit éteindre une flamme
-
-Réactions en chaîne
-
-
-
-
-
-
-
-Quadrillage, Objets => Centre de gravité
-
-
+Ce projet a été produit à l'initiative d'une petite game jam organisée entre amis, le thème étant extinction, le but de ce jeu est d'éteindre le feu présent sur la scène de diverses manières, en essayant des choses grâce aux objets à disposition des joueurs.
 
