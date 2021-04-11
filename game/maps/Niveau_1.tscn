@@ -18,6 +18,8 @@ restants_block_dur = 0
 restants_planche_bois = 0
 restants_ventilateur = 0
 restants_pile = 0
+restants_laser_chaud = 0
+restants_laser_froid = 0
 niveau_suivant = "res://game/maps/Scene.tscn"
 
 [node name="Zone_dexistence" type="Area2D" parent="."]

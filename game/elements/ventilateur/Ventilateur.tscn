@@ -9,11 +9,11 @@
 [ext_resource path="res://game/elements/element.gd" type="Script" id=10]
 [ext_resource path="res://game/elements/ventilateur/ZoneVent.gd" type="Script" id=11]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 25.9742
 height = 30.8813
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ) ],
 "loop": true,
@@ -21,10 +21,10 @@ animations = [ {
 "speed": 35.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 89.7046, 47.6519 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 30.0
 height = 25.0
 
@@ -38,7 +38,7 @@ nom_element = "ventilateur"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -11.3393, -1.25993 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Electronique" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -48,7 +48,7 @@ script = ExtResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -14.8438, -3.46477 )
 scale = Vector2( 0.499181, 0.499181 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 frame = 3
 
 [node name="ZoneVent" type="Area2D" parent="."]
@@ -56,11 +56,11 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneVent"]
 position = Vector2( 75.9224, -0.265778 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( -38.9858, -43.8598 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 [connection signal="timeout" from="Electronique/Timer" to="Electronique" method="_on_Timer_timeout"]
 [connection signal="body_exited" from="ZoneVent" to="ZoneVent" method="_on_ZoneVent_body_exited"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

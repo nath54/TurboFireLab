@@ -10,7 +10,7 @@ func _ready():
 		add_child(s)
 		move_child(s, 0)
 	else:
-		get_tree().change_scene("res://menus/MainMenu.tscn")
+		pass
 	$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
 	$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
 	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
@@ -141,50 +141,6 @@ func _on_Bt_scale_pressed():
 	$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = true
 
 
-func raj_el(bt, el, path, variable_to_reduce):
-	if GlobalGame.lance_initial:
-		return
-	if GlobalGame.est_placer:
-		GlobalGame.img_place.queue_free()
-	var r = preload("res://game/ui/sprite_place.tscn")
-	GlobalGame.img_place = r.instance()
-	GlobalGame.img_place.texture = bt.texture_normal
-	GlobalGame.img_place.element = el
-	GlobalGame.img_place.path = path
-	GlobalGame.img_place.variable_to_reduce = variable_to_reduce
-	GlobalGame.est_placer = true
-	GlobalGame.scene.add_child(GlobalGame.img_place)
-
-
-func _on_bt_eau_pressed():
-	if GlobalGame.restants_goutte_eau == -1 or GlobalGame.restants_goutte_eau >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_eau", preload("res://game/elements/eau/GoutteEau.tscn"), "Elements/eau", "restants_goutte_eau")
-
-func _on_Bt_feu_pressed():
-	if GlobalGame.restants_flamme == -1 or GlobalGame.restants_flamme >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_feu", preload("res://game/elements/flamme/flamme.tscn"), "Flammes", "restants_flamme")
-
-func _on_Bt_barre_pressed():
-	if GlobalGame.restants_barre == -1 or GlobalGame.restants_barre >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_barre", preload("res://game/elements/barre/barre.tscn"), "Elements/objets", "restants_barre")
-
-func _on_Bt_block_pressed():
-	if GlobalGame.restants_block_dur == -1 or GlobalGame.restants_block_dur >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_block", preload("res://game/elements/block_dur/block_dur.tscn"), "Elements/objets", "restants_block_dur")
-
-func _on_Bt_planche_pressed():
-	if GlobalGame.restants_planche_bois == -1 or GlobalGame.restants_planche_bois >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets", "restants_planche_bois")
-
-func _on_Bt_ventilateur_pressed():
-	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_ventilateur", preload("res://game/elements/ventilateur/Ventilateur.tscn"), "Elements/objets", "restants_ventilateur")
-
-func _on_Bt_pile_pressed():
-	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
-		raj_el($"Menus/Menu_elements/GridContainer/Bt_pile", preload("res://game/elements/pile/Pile.tscn"), "Elements/objets", "restants_pile")
-
-
 func _on_Bt_console_pressed():
 	$Menus/Console/Console.visible = true
 	$Menus/Console/Succes.visible = false
@@ -230,10 +186,57 @@ func _on_Bt_menu_pressed():
 func _on_Bt_quitter_pressed():
 	get_tree().quit()
 
+func raj_el(bt, el, path, variable_to_reduce):
+	if GlobalGame.lance_initial:
+		return
+	if GlobalGame.est_placer:
+		GlobalGame.img_place.queue_free()
+	var r = preload("res://game/ui/sprite_place.tscn")
+	GlobalGame.img_place = r.instance()
+	GlobalGame.img_place.texture = bt.texture_normal
+	GlobalGame.img_place.element = el
+	GlobalGame.img_place.path = path
+	GlobalGame.img_place.variable_to_reduce = variable_to_reduce
+	GlobalGame.est_placer = true
+	GlobalGame.scene.add_child(GlobalGame.img_place)
+
+
+func _on_bt_eau_pressed():
+	if GlobalGame.restants_goutte_eau == -1 or GlobalGame.restants_goutte_eau >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_eau", preload("res://game/elements/eau/GoutteEau.tscn"), "Elements/eau", "restants_goutte_eau")
+
+func _on_Bt_feu_pressed():
+	if GlobalGame.restants_flamme == -1 or GlobalGame.restants_flamme >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_feu", preload("res://game/elements/flamme/flamme.tscn"), "Flammes", "restants_flamme")
+
+func _on_Bt_barre_pressed():
+	if GlobalGame.restants_barre == -1 or GlobalGame.restants_barre >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_barre", preload("res://game/elements/barre/barre.tscn"), "Elements/objets", "restants_barre")
+
+func _on_Bt_block_pressed():
+	if GlobalGame.restants_block_dur == -1 or GlobalGame.restants_block_dur >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_block", preload("res://game/elements/block_dur/block_dur.tscn"), "Elements/objets", "restants_block_dur")
+
+func _on_Bt_planche_pressed():
+	if GlobalGame.restants_planche_bois == -1 or GlobalGame.restants_planche_bois >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_planche", preload("res://game/elements/planche_bois/planche_bois.tscn"), "Elements/objets", "restants_planche_bois")
+
+func _on_Bt_ventilateur_pressed():
+	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_ventilateur", preload("res://game/elements/ventilateur/Ventilateur.tscn"), "Elements/objets", "restants_ventilateur")
+
+func _on_Bt_pile_pressed():
+	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_pile", preload("res://game/elements/pile/Pile.tscn"), "Elements/objets", "restants_pile")
 
 func _on_Bt_laser_froid_pressed():
-	pass # Replace with function body.
-
+	if GlobalGame.restants_laser_froid == -1 or GlobalGame.restants_laser_froid >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_laser_froid", preload("res://game/elements/laser_froid/Laser_froid.tscn"), "Elements/objets", "restants_laser_froid")
 
 func _on_Bt_laser_chaud_pressed():
-	pass # Replace with function body.
+	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_laser_chaud", preload("res://game/elements/laser_chaud/Laser_chaud.tscn"), "Elements/objets", "restants_laser_chaud")
+
+
+func _on_Bt_credits_pressed():
+	get_tree().change_scene("res://menus/Credits.tscn")

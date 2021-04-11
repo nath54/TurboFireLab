@@ -809,6 +809,7 @@ anims/fondu = SubResource( 4 )
 [connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_restart" to="." method="_on_Bt_restart_pressed"]
 [connection signal="pressed" from="Menus/Console/Menu/Bt_quitter" to="." method="_on_Bt_quitter_pressed"]
+[connection signal="pressed" from="Menus/Console/Menu/Bt_credits" to="." method="_on_Bt_credits_pressed"]
 [connection signal="pressed" from="Menus/Console/Bt_console" to="." method="_on_Bt_console_pressed"]
 [connection signal="pressed" from="Menus/Console/Bt_succes" to="." method="_on_Bt_succes_pressed"]
 [connection signal="pressed" from="Menus/Console/Bt_data" to="." method="_on_Bt_data_pressed"]

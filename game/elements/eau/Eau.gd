@@ -27,3 +27,4 @@ func effet_froid():
 	glac.position = position
 	get_parent().add_child(glac)
 	queue_free()
+	GlobalGame.game.get_node("Datas").set_data("7")

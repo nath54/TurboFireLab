@@ -20,6 +20,8 @@ var restants_block_dur = -1
 var restants_planche_bois = -1
 var restants_ventilateur = -1
 var restants_pile = -1
+var restants_laser_froid = -1
+var restants_laser_chaud = -1
 
 var game = null
 var scene = null

@@ -11,7 +11,7 @@ var datas = {
 	"7":"La diminution de température peut refroidir l'eau et la transformer en glace",
 	"8":"L'augmentation de température tranforme la glace en eau",
 	"9":"Les ventilateurs poussent les objets",
-	"10":"Le plastique isole l'électricité",
+	"10":"Les matériaux non conducteurs isolent l'électricité",
 	"11":"Le métal conduit l'électricité"
 }
 

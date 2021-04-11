@@ -1,0 +1,191 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/font/rainyhearts_6.tres" type="DynamicFont" id=1]
+[ext_resource path="res://res/musics/credits.ogg" type="AudioStream" id=2]
+[ext_resource path="res://menus/Credits.gd" type="Script" id=3]
+[ext_resource path="res://res/ui/button_console.png" type="Texture" id=4]
+[ext_resource path="res://res/font/rainyhearts_5.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -0.00012207
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1280.0
+margin_bottom = 2490.0
+custom_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 1280, 720 )
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 769.0
+margin_right = 1280.0
+margin_bottom = 819.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 869.0
+margin_right = 1280.0
+margin_bottom = 919.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Turbo Fire Lab"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 969.0
+margin_right = 1280.0
+margin_bottom = 1019.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Un jeu fait par Turbo élite studio et Nath54"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1069.0
+margin_right = 1280.0
+margin_bottom = 1119.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Programmateur en chef : Nath54"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1169.0
+margin_right = 1280.0
+margin_bottom = 1219.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Programmeur : Simon"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1269.0
+margin_right = 1280.0
+margin_bottom = 1319.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Musique : Le Coquillard"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1369.0
+margin_right = 1280.0
+margin_bottom = 1419.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Graphisme : Coquill4ge, Nath54, et Compote"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1469.0
+margin_right = 1280.0
+margin_bottom = 1519.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Un peu tout : Thomas et Nath54"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1569.0
+margin_right = 1280.0
+margin_bottom = 1619.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Merci à Nath54"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1669.0
+margin_right = 1280.0
+margin_bottom = 1719.0
+rect_min_size = Vector2( 1280, 50 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Un jeu dédicacé à tous nos joueurs"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1770.0
+margin_right = 1280.0
+margin_bottom = 2490.0
+rect_min_size = Vector2( 1280, 720 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 19.799
+margin_top = 19.799
+margin_right = 192.799
+margin_bottom = 65.799
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "retour"
+align = 1
+valign = 1
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -8,5 +8,5 @@ var en_cours = false
 func _physics_process(delta):
 	if GlobalGame.lance and en_cours:
 		for body in get_overlapping_bodies():
-			if body.has_method("effet_froid"):
-				body.effet_froid()
+			if body.has_method("effet_chaud"):
+				body.effet_chaud()

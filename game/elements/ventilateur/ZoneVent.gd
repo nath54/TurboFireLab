@@ -9,6 +9,8 @@ func _physics_process(delta):
 	if GlobalGame.lance and en_cours:
 		for body in get_overlapping_bodies():
 			if body.get("effets_vent") and body.effets_vent:# and not body in objets_sous_force.keys():
+				if body.nom_element == "vapeur":
+					GlobalGame.game.get_node("Datas").set_data("2")
 				# body.position += sens.rotated(rotation_degrees) * delta
 				# body.add_force(position, force*delta)
 				var fr = force.rotated(get_parent().rotation)

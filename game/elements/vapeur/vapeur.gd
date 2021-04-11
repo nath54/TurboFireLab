@@ -23,3 +23,4 @@ func effet_froid():
 	eau.position = position
 	get_parent().add_child(eau)
 	queue_free()
+	GlobalGame.game.get_node("Datas").set_data("6")

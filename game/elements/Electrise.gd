@@ -13,6 +13,8 @@ func _process(delta):
 		var compteur = 0
 		for body in get_overlapping_bodies():
 			# Pour les matériaux conducteurs
+			if body.get("est_conducteur") and not body.est_conducteur:
+				GlobalGame.game.get_node("Datas").set_data("10")
 			if body.has_method("is_electrisable") and body.is_electrisable():
 				compteur += 1
 				body.nom_objet_electrisant = get_parent().nom_element
