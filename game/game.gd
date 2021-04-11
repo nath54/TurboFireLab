@@ -22,23 +22,6 @@ func _ready():
 	#
 	console_mes("> System loading ...")
 	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
-	console_mes("> Loading complete.")
 
 func test_gagne():
 	# Cette méthode est appelée lorsqu'on éteint une flamme
@@ -87,9 +70,20 @@ func _on_Bt_restart_pressed():
 	load_from_begining()
 
 func load_from_begining():
-	if GlobalGame.scene_saved is PackedScene:
+	if GlobalGame.scene_saved != null:
 		$Scene.queue_free()
-		var s = GlobalGame.scene_saved.instance()
+		# 
+		$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
+		$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
+		$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
+		GlobalGame.is_deleting = false
+		GlobalGame.est_placer = false
+		GlobalGame.img_place = null
+		GlobalGame.mode = 1
+		GlobalGame.lance=false
+		GlobalGame.lance_initial=false
+		Physics2DServer.set_active(false)
+		var s = GlobalGame.scene_saved
 		add_child(s)
 		move_child(s, 0)
 

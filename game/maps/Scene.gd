@@ -24,10 +24,10 @@ func _ready():
 	GlobalGame.scene_saved = null
 
 func save_beginning():
-	var scene_root = self
-	GlobalGame.scene_saved = PackedScene.new()
+	# var scene_root = self
+	GlobalGame.scene_saved = self.duplicate()
 	# _set_owner(scene_root, scene_root)
-	GlobalGame.scene_saved.pack(scene_root)
+	# GlobalGame.scene_saved.pack(scene_root)
 
 func _on_Zone_dexistence_body_exited(body):
 	body.queue_free()
