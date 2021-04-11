@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eau.wav-af14f8b28409b9f749fa867a5bb2c78e.sample"
+
+[deps]
+
+source_file="res://res/sounds/eau.wav"
+dest_files=[ "res://.import/eau.wav-af14f8b28409b9f749fa867a5bb2c78e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

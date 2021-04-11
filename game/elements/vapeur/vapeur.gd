@@ -2,9 +2,14 @@ extends RigidBody2D
 
 const FACTEUR_VITESSE = 20
 
-var est_eau = true;
-var effets_vents = true
 
+var est_eau = true
+var effets_vent = true
+var electrise = false
+var est_conducteur = true
+var couleur_electricite = true
+var nom_objet_electrisant = ""
+var nom_element = "vapeur"
 
 func _integrate_forces(state):
 	var dt = state.get_step()

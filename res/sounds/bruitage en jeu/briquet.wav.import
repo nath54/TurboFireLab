@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/briquet.wav-7bafd8fa56ae7324aee18ec8ea506d08.sample"
+
+[deps]
+
+source_file="res://res/sounds/bruitage en jeu/briquet.wav"
+dest_files=[ "res://.import/briquet.wav-7bafd8fa56ae7324aee18ec8ea506d08.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

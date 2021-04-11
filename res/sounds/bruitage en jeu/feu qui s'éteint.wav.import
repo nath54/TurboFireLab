@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/feu qui s'éteint.wav-16840943022ef69969ea1ece86bdad43.sample"
+
+[deps]
+
+source_file="res://res/sounds/bruitage en jeu/feu qui s'éteint.wav"
+dest_files=[ "res://.import/feu qui s'éteint.wav-16840943022ef69969ea1ece86bdad43.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

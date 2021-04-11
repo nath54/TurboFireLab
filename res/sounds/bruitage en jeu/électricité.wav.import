@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/électricité.wav-bc4b82e18706e9fa1a69a790deb4970f.sample"
+
+[deps]
+
+source_file="res://res/sounds/bruitage en jeu/électricité.wav"
+dest_files=[ "res://.import/électricité.wav-bc4b82e18706e9fa1a69a790deb4970f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

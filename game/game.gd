@@ -1,6 +1,12 @@
 extends Node2D
 
+func on_music_intro_finished():
+	Music.jouer("res://res/musics/menuboucle.ogg", true, null)
+
 func _ready():
+	var on_finished = FuncRef.new()
+	on_finished.set_function("on_music_intro_finished")
+	Music.jouer("res://res/musics/menuintro.ogg", false, on_finished)
 	$Panel.visible = true
 	$AnimationPlayer.play("fondu")
 	GlobalGame.game = self
@@ -37,7 +43,11 @@ func test_gagne():
 	# On doit faire -1 car on appelle la fonction avant de supprimer la flamme
 	if GlobalGame.scene.get_node("Flammes").get_child_count()-1 <= 0:
 		# S'il n'y en a plus, on a gagné 
-		get_tree().change_scene("res://menus/MenuGagne.tscn")
+		console_mes("Bip.")
+		console_mes("Bip.")
+		console_mes("Le feu a été eteint")
+		console_mes("Vous pouvez recommencer en appuyant sur le bouton reset.")
+		# get_tree().change_scene("res://menus/MenuGagne.tscn")
 	# Sinon, on ne fait rien
 
 func _on_Bt_lancer_pressed():
@@ -191,6 +201,7 @@ func raj_el(bt, el, path, variable_to_reduce):
 		return
 	if GlobalGame.est_placer:
 		GlobalGame.img_place.queue_free()
+	Music.sfx("res://res/sounds/pointer.wav")
 	var r = preload("res://game/ui/sprite_place.tscn")
 	GlobalGame.img_place = r.instance()
 	GlobalGame.img_place.texture = bt.texture_normal

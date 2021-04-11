@@ -5,7 +5,7 @@
 [ext_resource path="res://res/imgs/anim laser rouge/004.png" type="Texture" id=3]
 [ext_resource path="res://res/imgs/laser dem rouge/004.png" type="Texture" id=4]
 [ext_resource path="res://res/imgs/laser dem rouge/002.png" type="Texture" id=5]
-[ext_resource path="res://game/elements/laser_chaud/Electronique.gd" type="Script" id=6]
+[ext_resource path="res://game/elements/laser_chaud/electronique.gd" type="Script" id=6]
 [ext_resource path="res://game/elements/element.gd" type="Script" id=7]
 [ext_resource path="res://game/elements/laser_chaud/ZoneChaud.gd" type="Script" id=8]
 [ext_resource path="res://res/imgs/laser dem rouge/005.png" type="Texture" id=9]

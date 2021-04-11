@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalGame="*res://game/global_game.gd"
+Music="*res://game/music.tscn"
 
 [display]
 

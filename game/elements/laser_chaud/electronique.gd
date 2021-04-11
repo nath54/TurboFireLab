@@ -25,7 +25,6 @@ func _process(delta):
 		get_parent().electrise = false
 		lancer()
 
-
 func _on_AnimatedSprite_animation_finished():
 	if animsp.animation == "debut":
 		animsp.play("default")

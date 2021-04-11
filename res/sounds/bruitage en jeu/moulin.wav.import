@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moulin.wav-f5f622d1ef6cf37fa0174d5807e3e507.sample"
+
+[deps]
+
+source_file="res://res/sounds/bruitage en jeu/moulin.wav"
+dest_files=[ "res://.import/moulin.wav-f5f622d1ef6cf37fa0174d5807e3e507.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

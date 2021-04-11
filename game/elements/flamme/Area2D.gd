@@ -12,6 +12,13 @@ func _on_Area2D_body_entered(body):
 	On définira ici les règles de physique lorsqu'un OBJET
 	rentre en collision avec la flamme
 	"""
-	if body.get("est_eau"):
-		get_parent().get_parent().get_parent().get_parent().test_gagne();
-		queue_free();
+	if body.nom_element == "eau":
+		GlobalGame.game.test_gagne();
+		get_parent().queue_free();
+	elif body.nom_element == "glace":
+		GlobalGame.game.test_gagne();
+		get_parent().queue_free();
+	elif body.nom_element == "vapeur":
+		GlobalGame.game.test_gagne();
+		get_parent().queue_free();
+	

@@ -3,14 +3,12 @@ extends Node
 var succes = {
 	"en série !": "Faire marcher 3 objets éléctriques avec une seule pile",
 	"à l'état gazeux": "éteindre le feu avec la vapeur d'eau",
-	"à l'abordage !": "lancer de l'eau avec une catapulte",
 	"j'ai froid": "éteindre du feu avec un glaçon"
 }
 
 var succes_fait = {
 	"en série !": false,
 	"à l'état gazeux": false,
-	"à l'abordage !": false,
 	"j'ai froid": false
 }
 
