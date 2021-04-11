@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	if OS.get_ticks_msec() - last_tick < tp_tick:
 		return
-	if get_parent().electrise:
+	if get_parent().electrise and get_parent().est_conducteur:
 		var compteur = 0
 		for body in get_overlapping_bodies():
 			# Pour les matériaux conducteurs
@@ -17,15 +17,14 @@ func _process(delta):
 				compteur += 1
 				body.electrise = true
 				body.modulate = Color(0.5,0,1)
-				body.debut_electrisation = OS.get_ticks_msec()
 			# Pour les elements de type moteur
-			if body.has_node("electronique"):
+			if body.has_node("Electronique"):
+				print("aaaaaaaaaaaa")
+				body.get_node("Electronique").lancer()
 				compteur += 1
 				# body.lancer()
+			if compteur == 2:
+				break
 		if compteur >= 1:
-			get_parent().electrise = false
-			get_parent().modulate = Color(1,1,1)
-	if get_parent().electrise:
-		if OS.get_ticks_msec() - get_parent().debut_electrisation >= 1000:
 			get_parent().electrise = false
 			get_parent().modulate = Color(1,1,1)

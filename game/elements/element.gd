@@ -5,11 +5,10 @@ export var est_tournable : bool = true
 export var est_scalable : bool = true
 export var est_supprimable : bool = true
 export var est_electrisable : bool = false
+export var est_conducteur : bool = false
 export var electrise : bool = false
 export var effets_vent : bool = false
 export var obj_friction : float = 1
-
-var debut_electrisation = 0
 
 func is_electrisable():
 	return est_electrisable

@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://res/imgs/ventilo/ventilo_2.png" type="Texture" id=1]
 [ext_resource path="res://res/imgs/ventilo/ventilo_0.png" type="Texture" id=2]
+[ext_resource path="res://game/elements/ventilateur/electronique.gd" type="Script" id=3]
 [ext_resource path="res://res/imgs/ventilo/ventilo_3.png" type="Texture" id=4]
 [ext_resource path="res://res/imgs/ventilo/ventilo_4.png" type="Texture" id=7]
 [ext_resource path="res://res/imgs/ventilo/ventilo_1.png" type="Texture" id=8]
 [ext_resource path="res://game/elements/element.gd" type="Script" id=10]
 [ext_resource path="res://game/elements/ventilateur/ZoneVent.gd" type="Script" id=11]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 25.9742
+height = 30.8813
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -24,19 +29,26 @@ radius = 30.0
 height = 25.0
 
 [node name="Ventilateur" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 0
 script = ExtResource( 10 )
 est_scalable = false
+est_electrisable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -11.3393, -1.25993 )
+shape = SubResource( 4 )
 
 [node name="Electronique" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Electronique"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -14.8438, -3.46477 )
 scale = Vector2( 0.499181, 0.499181 )
 frames = SubResource( 1 )
-frame = 1
-playing = true
+frame = 3
 
 [node name="ZoneVent" type="Area2D" parent="."]
 script = ExtResource( 11 )
@@ -48,5 +60,6 @@ shape = SubResource( 2 )
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( -38.9858, -43.8598 )
 shape = SubResource( 3 )
+[connection signal="timeout" from="Electronique/Timer" to="Electronique" method="_on_Timer_timeout"]
 [connection signal="body_exited" from="ZoneVent" to="ZoneVent" method="_on_ZoneVent_body_exited"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
