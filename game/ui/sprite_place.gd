@@ -15,7 +15,6 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		print(position)
 		if position.x > 0 and position.x < GlobalGame.max_x and position.y > 0 and position.y < GlobalGame.max_y:
 			var i = GlobalGame.img_place.element.instance()
 			i.position = position

@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/elements/eau/Eau.gd" type="Script" id=1]
 [ext_resource path="res://res/imgs/eau.png" type="Texture" id=2]
-[ext_resource path="res://game/elements/electrical.shader" type="Shader" id=3]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 3 )
+[ext_resource path="res://game/elements/Electrise.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 25.0
@@ -14,7 +11,6 @@ radius = 25.0
 radius = 2.93392
 
 [node name="Eau" type="RigidBody2D"]
-material = SubResource( 1 )
 mass = 0.5
 script = ExtResource( 1 )
 
@@ -23,6 +19,7 @@ scale = Vector2( 0.06, 0.06 )
 shape = SubResource( 2 )
 
 [node name="Zone_Electricite" type="Area2D" parent="."]
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Electricite"]
 shape = SubResource( 3 )

@@ -4,11 +4,15 @@ export var est_bougeable : bool = true
 export var est_tournable : bool = true
 export var est_scalable : bool = true
 export var est_supprimable : bool = true
+export var est_electrisable : bool = false
 export var electrise : bool = false
 export var effets_vent : bool = false
 export var obj_friction : float = 1
 
 var debut_electrisation = 0
+
+func is_electrisable():
+	return est_electrisable
 
 func _ready():
 	if get_node(".") is PhysicsBody2D: 
@@ -42,19 +46,4 @@ func _on_TouchScreenButton_pressed():
 			queue_free()
 			GlobalGame.is_deleting = false
 		dragging = true
-
-func _process(delta):
-	if electrise:
-		if get_node("Zone_Electricite"):
-			electrise = false
-			modulate = Color(1,1,1)
-			for body in get_node("Zone_Electricite").get_overlapping_bodies():
-				# Pour les matériaux conducteurs
-				if body.get_node("Zone_Electricite"):
-					body.electrise = true
-					modulate = Color(0.5,0,1)
-					body.debut_electrisation = OS.get_ticks_msec()
-				# Pour les elements de type moteur
-				if body.get("est_moteur"):
-					body.lancer()
 

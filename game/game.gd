@@ -27,13 +27,13 @@ func test_gagne():
 	# Cette méthode est appelée lorsqu'on éteint une flamme
 	# On regarde le nombre de flammes qu'il nous reste
 	# On doit faire -1 car on appelle la fonction avant de supprimer la flamme
-	if $Scene/Flammes.get_child_count()-1 <= 0:
+	if GlobalGame.scene.get_node("Flammes").get_child_count()-1 <= 0:
 		# S'il n'y en a plus, on a gagné 
 		get_tree().change_scene("res://menus/MenuGagne.tscn")
 	# Sinon, on ne fait rien
 
 func _on_Bt_lancer_pressed():
-	$Scene.save_beginning()
+	GlobalGame.scene.save_beginning()
 	if not GlobalGame.lance:
 		# $Menus/Bts/Bt_lancer.text = "pause"
 		Physics2DServer.set_active(true)
@@ -71,7 +71,7 @@ func _on_Bt_restart_pressed():
 
 func load_from_begining():
 	if GlobalGame.scene_saved != null:
-		$Scene.queue_free()
+		GlobalGame.scene.queue_free()
 		# 
 		$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
 		$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
@@ -84,6 +84,7 @@ func load_from_begining():
 		GlobalGame.lance_initial=false
 		Physics2DServer.set_active(false)
 		var s = GlobalGame.scene_saved
+		s.set_name("Scene")
 		add_child(s)
 		move_child(s, 0)
 
@@ -95,6 +96,7 @@ func aff_restants():
 		["Menus/Menu_elements/GridContainer/Bt_block/Restants_blocks", GlobalGame.restants_block_dur],
 		["Menus/Menu_elements/GridContainer/Bt_planche/Restants_planche", GlobalGame.restants_planche_bois],
 		["Menus/Menu_elements/GridContainer/Bt_ventilateur/Restants_ventilo", GlobalGame.restants_ventilateur],
+		["Menus/Menu_elements/GridContainer/Bt_pile/Restants_pile", GlobalGame.restants_pile],
 	]
 	for l in lst_restants:
 		var element = get_node(l[0])
@@ -141,7 +143,7 @@ func raj_el(bt, el, path, variable_to_reduce):
 	GlobalGame.img_place.path = path
 	GlobalGame.img_place.variable_to_reduce = variable_to_reduce
 	GlobalGame.est_placer = true
-	$Scene.add_child(GlobalGame.img_place)
+	GlobalGame.scene.add_child(GlobalGame.img_place)
 
 
 func _on_bt_eau_pressed():
@@ -168,3 +170,6 @@ func _on_Bt_ventilateur_pressed():
 	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
 		raj_el($"Menus/Menu_elements/GridContainer/Bt_ventilateur", preload("res://game/elements/ventilateur/Ventilateur.tscn"), "Elements/objets", "restants_ventilateur")
 
+func _on_Bt_pile_pressed():
+	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_pile", preload("res://game/elements/pile/Pile.tscn"), "Elements/objets", "restants_pile")

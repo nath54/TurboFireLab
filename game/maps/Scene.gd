@@ -6,6 +6,7 @@ export var restants_flamme : int = -1
 export var restants_block_dur : int = -1
 export var restants_planche_bois : int = -1
 export var restants_ventilateur : int = -1
+export var restants_pile : int = -1
 export var niveau_suivant: String = "null"
 
 func load_restants():
@@ -15,6 +16,7 @@ func load_restants():
 	GlobalGame.restants_block_dur = restants_block_dur
 	GlobalGame.restants_planche_bois = restants_planche_bois
 	GlobalGame.restants_ventilateur = restants_ventilateur
+	GlobalGame.restants_pile = restants_pile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +24,7 @@ func _ready():
 	GlobalGame.game.aff_restants()
 	GlobalGame.niveau_suivant = niveau_suivant
 	GlobalGame.scene_saved = null
+	GlobalGame.scene = self
 
 func save_beginning():
 	# var scene_root = self
