@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menus/MenuGagne.gd" type="Script" id=1]
+[ext_resource path="res://res/font/rainyhearts_6.tres" type="DynamicFont" id=2]
+[ext_resource path="res://res/font/rainyhearts_4.tres" type="DynamicFont" id=3]
 
 [node name="MenuGagne" type="Control"]
 anchor_right = 1.0
@@ -10,33 +12,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 200.012
-margin_top = 73.0204
-margin_right = 834.012
-margin_bottom = 304.02
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 100
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 256.0
+margin_right = 1280.0
+margin_bottom = 304.0
+custom_fonts/font = ExtResource( 2 )
 text = "Vous avez gagné !"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bt_recommencer" type="Button" parent="."]
-margin_left = 157.435
-margin_top = 376.224
-margin_right = 428.435
-margin_bottom = 506.224
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 404.0
+margin_right = 1280.0
+margin_bottom = 464.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Bt_suivant" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 320.0
+margin_right = 540.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 220, 60 )
+custom_fonts/font = ExtResource( 3 )
+text = "Niveau Suivant"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_recommencer" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 590.0
+margin_right = 790.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+custom_fonts/font = ExtResource( 3 )
 text = "Recommencer"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_Menu" type="Button" parent="."]
-margin_left = 500.313
-margin_top = 369.874
-margin_right = 771.313
-margin_bottom = 499.874
+[node name="Bt_Menu" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 840.0
+margin_right = 960.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 120, 60 )
+custom_fonts/font = ExtResource( 3 )
 text = "Menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
-[connection signal="pressed" from="Bt_Menu" to="." method="_on_Bt_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_suivant" to="." method="_on_Bt_suivant_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Menu" to="." method="_on_Bt_Menu_pressed"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/elements/flamme/flamme.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/elements/barre/barre.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/maps/Scene.gd" type="Script" id=3]
+[ext_resource path="res://res/ui/bg.png" type="Texture" id=4]
+[ext_resource path="res://game/elements/eau/GoutteEau.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 507.798, 266.127 )
+
+[node name="Scene" type="Node2D"]
+script = ExtResource( 3 )
+restants_goutte_eau = 0
+restants_barre = 1
+restants_flamme = 0
+restants_block_dur = 0
+restants_planche_bois = 0
+restants_ventilateur = 0
+niveau_suivant = "res://game/maps/Scene.tscn"
+
+[node name="Zone_dexistence" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_dexistence"]
+position = Vector2( 505.455, 270.285 )
+shape = SubResource( 1 )
+
+[node name="Bg" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="Bg"]
+margin_right = 1265.0
+margin_bottom = 725.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Bg"]
+position = Vector2( 510.042, 275.645 )
+scale = Vector2( 4.05286, 3.68241 )
+texture = ExtResource( 4 )
+
+[node name="Flammes" type="Node2D" parent="."]
+
+[node name="Flamme" parent="Flammes" instance=ExtResource( 1 )]
+position = Vector2( 421.908, 341.136 )
+est_bougeable = false
+
+[node name="Elements" type="Node2D" parent="."]
+
+[node name="eau" type="Node2D" parent="Elements"]
+
+[node name="GoutteEau" parent="Elements/eau" instance=ExtResource( 5 )]
+position = Vector2( 666.949, 243.226 )
+est_bougeable = false
+
+[node name="objets" type="Node2D" parent="Elements"]
+
+[node name="Barre2" parent="Elements/objets" instance=ExtResource( 2 )]
+position = Vector2( 428.457, 357.048 )
+scale = Vector2( 4.82411, -2.09453 )
+est_bougeable = false
+est_tournable = false
+est_scalable = false
+
+[node name="Barre3" parent="Elements/objets" instance=ExtResource( 2 )]
+position = Vector2( 664.241, 278.595 )
+rotation = -0.719377
+scale = Vector2( 2.22016, -2.09453 )
+est_bougeable = false
+est_tournable = false
+est_scalable = false
+
+[node name="Zone_de_placement" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_de_placement"]
+position = Vector2( 505.455, 270.285 )
+shape = SubResource( 1 )
+[connection signal="body_exited" from="Zone_dexistence" to="." method="_on_Zone_dexistence_body_exited"]

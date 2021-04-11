@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://res/font/rainyhearts_5.tres" type="DynamicFont" id=2]
+[ext_resource path="res://res/font/rainyhearts_6.tres" type="DynamicFont" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -10,24 +12,93 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_play" type="Button" parent="."]
-margin_left = 137.198
-margin_top = 233.415
-margin_right = 411.198
-margin_bottom = 433.415
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_top = -1.0
+margin_right = 1280.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 1280, 100 )
+custom_fonts/font = ExtResource( 3 )
+text = "Turbo Fire Lab"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 150.0
+margin_right = 1280.0
+margin_bottom = 210.0
+alignment = 1
+
+[node name="Bt_play" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 580.0
+margin_right = 700.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 120, 60 )
+custom_fonts/font = ExtResource( 2 )
 text = "jouer"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bt_quitter" type="Button" parent="."]
-margin_left = 514.939
-margin_top = 235.197
-margin_right = 788.939
-margin_bottom = 435.197
+[node name="Niveaux" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 260.0
+margin_right = 1280.0
+margin_bottom = 320.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Bt_niveau_1" type="Button" parent="VBoxContainer/Niveaux"]
+margin_left = 195.0
+margin_right = 355.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 60 )
+custom_fonts/font = ExtResource( 2 )
+text = "niveau 1"
+
+[node name="Bt_jeu_libre" type="Button" parent="VBoxContainer/Niveaux"]
+margin_left = 915.0
+margin_right = 1085.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+custom_fonts/font = ExtResource( 2 )
+text = "jeu libre"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 260.0
+margin_right = 1280.0
+margin_bottom = 320.0
+alignment = 1
+
+[node name="Bt_quitter" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 560.0
+margin_right = 720.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 60 )
+custom_fonts/font = ExtResource( 2 )
 text = "Quitter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Bt_play" to="." method="_on_Bt_play_pressed"]
-[connection signal="pressed" from="Bt_quitter" to="." method="_on_Bt_quitter_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_play" to="." method="_on_Bt_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Niveaux/Bt_niveau_1" to="." method="_on_Bt_niveau_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Niveaux/Bt_jeu_libre" to="." method="_on_Bt_jeu_libre_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Bt_quitter" to="." method="_on_Bt_quitter_pressed"]
