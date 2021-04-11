@@ -22,6 +22,23 @@ func _ready():
 	#
 	console_mes("> System loading ...")
 	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
+	console_mes("> Loading complete.")
 
 func test_gagne():
 	# Cette méthode est appelée lorsqu'on éteint une flamme
@@ -61,16 +78,20 @@ func console_mes(message):
 	mes.rect_min_size = Vector2(800,20)
 	mes.add_font_override("font", load("res://res/font/rainyhearts_2.tres"))
 	$Menus/Console/ScrollContainer/Console_Messages.add_child(mes)
+	if $Menus/Console/ScrollContainer is ScrollContainer:
+		var scroll = $Menus/Console/ScrollContainer.get_v_scrollbar ()
+		scroll.value = scroll.max_value
+	
 
 func _on_Bt_restart_pressed():
 	load_from_begining()
 
 func load_from_begining():
-	var scene = $Scene.scene
-	$Scene.queue_free()
-	var s = scene.instance()
-	add_child(s)
-	move_child(s, 0)
+	if GlobalGame.scene_saved is PackedScene:
+		$Scene.queue_free()
+		var s = GlobalGame.scene_saved.instance()
+		add_child(s)
+		move_child(s, 0)
 
 func aff_restants():
 	var lst_restants = [

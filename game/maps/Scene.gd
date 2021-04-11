@@ -8,8 +8,6 @@ export var restants_planche_bois : int = -1
 export var restants_ventilateur : int = -1
 export var niveau_suivant: String = "null"
 
-var scene = PackedScene.new()
-
 func load_restants():
 	GlobalGame.restants_goutte_eau = restants_goutte_eau
 	GlobalGame.restants_barre = restants_barre
@@ -23,11 +21,13 @@ func _ready():
 	load_restants()
 	GlobalGame.game.aff_restants()
 	GlobalGame.niveau_suivant = niveau_suivant
+	GlobalGame.scene_saved = null
 
 func save_beginning():
-	var scene_root = get_node(".")
+	var scene_root = self
+	GlobalGame.scene_saved = PackedScene.new()
 	# _set_owner(scene_root, scene_root)
-	scene.pack(scene_root)
+	GlobalGame.scene_saved.pack(scene_root)
 
 func _on_Zone_dexistence_body_exited(body):
 	body.queue_free()

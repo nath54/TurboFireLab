@@ -46,6 +46,7 @@ position = Vector2( 427.133, 305.64 )
 position = Vector2( 428.457, 357.048 )
 
 [node name="Zone_de_placement" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_de_placement"]
 position = Vector2( 505.455, 270.285 )

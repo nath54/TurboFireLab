@@ -21,3 +21,5 @@ var restants_planche_bois = -1
 var restants_ventilateur = -1
 
 var game = null
+
+var scene_saved = null

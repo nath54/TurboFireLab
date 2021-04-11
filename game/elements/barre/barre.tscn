@@ -24,12 +24,13 @@ normal = ExtResource( 2 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0995279, 0.126537 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 scale = Vector2( 0.1, 0.2 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -241.873, -22.6797, 242.701, -22.6821, 242.776, 23.4699, -241.885, 23.4765 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0995279, 0.126537 )
-shape = SubResource( 2 )
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
