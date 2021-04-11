@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/elements/element.gd" type="Script" id=1]
+[ext_resource path="res://res/imgs/rien.png" type="Texture" id=2]
+[ext_resource path="res://res/imgs/bucket.png" type="Texture" id=3]
+[ext_resource path="res://game/elements/Electrise.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.6448, 34.6354 )
+
+[node name="Seau" type="RigidBody2D"]
+position = Vector2( 0.749153, 0 )
+input_pickable = true
+mass = 0.5
+script = ExtResource( 1 )
+est_electrisable = true
+est_conducteur = true
+couleur_electricite = true
+effets_vent = true
+obj_friction = 0.8
+nom_element = "seau"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -68.4789, -60.1514 )
+scale = Vector2( 1.34451, 1.24125 )
+z_index = 10
+z_as_relative = false
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -3.08676, 0.280617 )
+scale = Vector2( 0.6, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -26.0549, -28.4618, -34.4734, -29.0231, -33.9121, 32.4317, 30.91, 32.7123, 31.4713, -28.1812, 23.3334, -28.4618, 23.0528, 26.5388, -24.6518, 26.5388 )
+
+[node name="Zone_Electricite" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_Electricite"]
+position = Vector2( -0.84185, 2.24492 )
+shape = SubResource( 2 )
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

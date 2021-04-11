@@ -15,10 +15,12 @@ func _on_Area2D_body_entered(body):
 	if body.nom_element == "eau":
 		GlobalGame.game.test_gagne();
 		get_parent().queue_free();
-	elif body.nom_element == "glace":
+	elif body.nom_element == "glacon":
 		GlobalGame.game.test_gagne();
 		get_parent().queue_free();
+		GlobalGame.game.get_node("Succes").set_succes("j'ai froid")
 	elif body.nom_element == "vapeur":
 		GlobalGame.game.test_gagne();
 		get_parent().queue_free();
-	
+		GlobalGame.game.get_node("Succes").set_succes("à l'état gazeux")
+

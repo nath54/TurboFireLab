@@ -1,9 +1,12 @@
 extends Node2D
 
+var menu_encours = "console"
+
 func on_music_intro_finished():
 	Music.jouer("res://res/musics/menuboucle.ogg", true, null)
 
 func _ready():
+	$Menus/Bts/Bt_lancer/Label.text = "Lancer la simulation"
 	var on_finished = FuncRef.new()
 	on_finished.set_function("on_music_intro_finished")
 	Music.jouer("res://res/musics/menuintro.ogg", false, on_finished)
@@ -80,10 +83,11 @@ func console_mes(message):
 	mes.autowrap = true
 	mes.rect_min_size = Vector2(800,20)
 	mes.add_font_override("font", load("res://res/font/rainyhearts_2.tres"))
+	var cont = $Menus/Console/Console/ScrollContainer
 	$Menus/Console/Console/ScrollContainer/Console_Messages.add_child(mes)
-	if $Menus/Console/Console/ScrollContainer is ScrollContainer:
-		var scroll = $Menus/Console/Console/ScrollContainer.get_v_scrollbar ()
-		scroll.value = scroll.max_value
+	cont.scroll_vertical=cont.rect_size.y
+	if not menu_encours == "console":
+		$Menus/Console/Bt_console/Alert.visible = true
 	
 
 func _on_Bt_restart_pressed():
@@ -96,6 +100,7 @@ func load_from_begining():
 		$"Menus/Menu_elements/VBoxContainer/selected_bouger".visible = true
 		$"Menus/Menu_elements/VBoxContainer/selected_rotate".visible = false
 		$"Menus/Menu_elements/VBoxContainer/selected_scale".visible = false
+		$Menus/Bts/Bt_lancer/Label.text = "Lancer la simulation"
 		GlobalGame.is_deleting = false
 		GlobalGame.est_placer = false
 		GlobalGame.img_place = null
@@ -152,6 +157,8 @@ func _on_Bt_scale_pressed():
 
 
 func _on_Bt_console_pressed():
+	menu_encours = "console"
+	$Menus/Console/Bt_console/Alert.visible = false
 	$Menus/Console/Console.visible = true
 	$Menus/Console/Succes.visible = false
 	$Menus/Console/Data.visible = false
@@ -162,6 +169,7 @@ func _on_Bt_console_pressed():
 	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
 
 func _on_Bt_succes_pressed():
+	menu_encours = "succes"
 	$Menus/Console/Console.visible = false
 	$Menus/Console/Succes.visible = true
 	$Menus/Console/Data.visible = false
@@ -172,6 +180,7 @@ func _on_Bt_succes_pressed():
 	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
 
 func _on_Bt_data_pressed():
+	menu_encours = "data"
 	$Menus/Console/Console.visible = false
 	$Menus/Console/Succes.visible = false
 	$Menus/Console/Data.visible = true
@@ -182,6 +191,7 @@ func _on_Bt_data_pressed():
 	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
 
 func _on_Bt_menu_pressed():
+	menu_encours = "menu"
 	$Menus/Console/Console.visible = false
 	$Menus/Console/Succes.visible = false
 	$Menus/Console/Data.visible = false
@@ -191,6 +201,9 @@ func _on_Bt_menu_pressed():
 	$Menus/Console/Bt_data.modulate = Color(1,1,1)
 	$Menus/Console/Bt_menu.modulate = Color(0,1,0)
 
+
+func _on_Bt_credits_pressed():
+	get_tree().change_scene("res://menus/Credits.tscn")
 
 
 func _on_Bt_quitter_pressed():
@@ -245,9 +258,9 @@ func _on_Bt_laser_froid_pressed():
 		raj_el($"Menus/Menu_elements/GridContainer/Bt_laser_froid", preload("res://game/elements/laser_froid/Laser_froid.tscn"), "Elements/objets", "restants_laser_froid")
 
 func _on_Bt_laser_chaud_pressed():
-	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
+	if GlobalGame.restants_laser_chaud == -1 or GlobalGame.restants_laser_chaud >= 1:
 		raj_el($"Menus/Menu_elements/GridContainer/Bt_laser_chaud", preload("res://game/elements/laser_chaud/Laser_chaud.tscn"), "Elements/objets", "restants_laser_chaud")
 
-
-func _on_Bt_credits_pressed():
-	get_tree().change_scene("res://menus/Credits.tscn")
+func _on_Bt_seau_pressed():
+	if GlobalGame.restants_seau == -1 or GlobalGame.restants_seau >= 1:
+		raj_el($"Menus/Menu_elements/GridContainer/Bt_seau", preload("res://game/elements/seau/Seau.tscn"), "Elements/objets", "restants_seau")

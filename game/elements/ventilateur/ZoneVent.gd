@@ -1,6 +1,6 @@
 extends Area2D
 
-export var force : Vector2 = Vector2(10,0);
+export var force : Vector2 = Vector2(2,0);
 
 var objets_sous_force = {}
 var en_cours = false

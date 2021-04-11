@@ -9,6 +9,7 @@ export var restants_ventilateur : int = -1
 export var restants_pile : int = -1
 export var restants_laser_chaud : int = -1
 export var restants_laser_froid : int = -1
+export var restants_seau : int = -1
 export var niveau_suivant: String = "null"
 
 func load_restants():
@@ -21,6 +22,7 @@ func load_restants():
 	GlobalGame.restants_pile = restants_pile
 	GlobalGame.restants_laser_froid = restants_laser_froid
 	GlobalGame.restants_laser_chaud = restants_laser_chaud
+	GlobalGame.restants_seau = restants_seau
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -13,4 +13,4 @@ func _process(delta):
 				if body.couleur_electricite:
 					body.modulate = Color(0.5,0,1)
 		if nb_elec >= 3:
-			GlobalGame.game.get_node("Succes").set_succes("")
+			GlobalGame.game.get_node("Succes").set_succes("en série !")

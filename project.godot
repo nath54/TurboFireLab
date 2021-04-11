@@ -45,8 +45,9 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-2d/physics_engine="GodotPhysics"
-2d/cell_size=16
+2d/time_before_sleep=1.0
+2d/bp_hash_table_size=2048
+2d/cell_size=32
 2d/default_gravity_vector=Vector2( 0, 2 )
 
 [rendering]
