@@ -11,6 +11,9 @@ export var couleur_electricite : bool = false
 export var effets_vent : bool = false
 export var obj_friction : float = 1
 
+export var nom_element : String = ""
+var nom_objet_electrisant : String = ""
+
 func is_electrisable():
 	return est_electrisable
 
@@ -46,4 +49,3 @@ func _on_TouchScreenButton_pressed():
 			queue_free()
 			GlobalGame.is_deleting = false
 		dragging = true
-

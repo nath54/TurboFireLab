@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://res/font/rainyhearts_3.tres" type="DynamicFont" id=1]
 [ext_resource path="res://game/game.gd" type="Script" id=2]
@@ -34,11 +34,38 @@
 [ext_resource path="res://res/ui/blanc.png" type="Texture" id=32]
 [ext_resource path="res://res/font/rainyhearts.ttf" type="DynamicFontData" id=33]
 [ext_resource path="res://res/imgs/pile.png" type="Texture" id=34]
+[ext_resource path="res://game/Data.gd" type="Script" id=35]
+[ext_resource path="res://res/ui/button_console.png" type="Texture" id=36]
+[ext_resource path="res://res/font/rainyhearts_5.tres" type="DynamicFont" id=37]
+[ext_resource path="res://game/Succes.gd" type="Script" id=38]
+[ext_resource path="res://res/imgs/anim laser/Laser_0.png" type="Texture" id=39]
+[ext_resource path="res://res/imgs/laser dem rouge/008.png" type="Texture" id=40]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
 use_filter = true
 font_data = ExtResource( 33 )
+
+[sub_resource type="AudioStreamSample" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fondu"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Jeu" type="Node2D"]
 script = ExtResource( 2 )
@@ -306,27 +333,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bouton_qui_sert_a_rien2" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
-modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
-margin_left = 74.0
+[node name="Bt_laser_froid" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 75.0
 margin_top = 146.0
-margin_right = 129.0
-margin_bottom = 201.0
-rect_min_size = Vector2( 55, 55 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 32 )
-texture_hover = ExtResource( 32 )
+margin_right = 130.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 54, 54 )
+texture_normal = ExtResource( 39 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bouton_qui_sert_a_rien3" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
-modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
-margin_left = 146.0
+[node name="Restants_laser_froid" type="Label" parent="Menus/Menu_elements/GridContainer/Bt_laser_froid"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_laser_chaud" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
+margin_left = 147.0
 margin_top = 146.0
-margin_right = 201.0
-margin_bottom = 201.0
-rect_min_size = Vector2( 55, 55 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 32 )
-texture_hover = ExtResource( 32 )
+margin_right = 202.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 54, 54 )
+texture_normal = ExtResource( 40 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restants_laser_chaud" type="Label" parent="Menus/Menu_elements/GridContainer/Bt_laser_chaud"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -1.12247
+margin_right = 2.0
+margin_bottom = -1.12247
+custom_fonts/font = ExtResource( 1 )
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Bouton_qui_sert_a_rien4" type="TextureButton" parent="Menus/Menu_elements/GridContainer"]
 modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
@@ -510,9 +561,16 @@ position = Vector2( 517.661, 83.7566 )
 scale = Vector2( 1, 0.830486 )
 texture = ExtResource( 20 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menus/Console"]
+[node name="Console" type="Control" parent="Menus/Console"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/Console/Console"]
 margin_left = 38.0
-margin_top = 27.0
+margin_top = 46.0
 margin_right = 971.0
 margin_bottom = 144.0
 follow_focus = true
@@ -521,9 +579,219 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Console_Messages" type="VBoxContainer" parent="Menus/Console/ScrollContainer"]
+[node name="Console_Messages" type="VBoxContainer" parent="Menus/Console/Console/ScrollContainer"]
+
+[node name="Succes" type="Control" parent="Menus/Console"]
+visible = false
+margin_left = 35.0
+margin_top = 40.0
+margin_right = 997.0
+margin_bottom = 143.0
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Menus/Console/Succes"]
+margin_left = 3.0
+margin_top = 6.0
+margin_right = 936.0
+margin_bottom = 104.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Liste_Succes" type="VBoxContainer" parent="Menus/Console/Succes/ScrollContainer2"]
+custom_constants/separation = 10
+
+[node name="Data" type="Control" parent="Menus/Console"]
+visible = false
+margin_left = 35.0
+margin_top = 40.0
+margin_right = 997.0
+margin_bottom = 143.0
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="Menus/Console/Data"]
+margin_left = 3.0
+margin_top = 6.0
+margin_right = 936.0
+margin_bottom = 104.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Data_Messages" type="VBoxContainer" parent="Menus/Console/Data/ScrollContainer3"]
+
+[node name="Menu" type="Control" parent="Menus/Console"]
+visible = false
+margin_left = 37.0
+margin_top = 42.0
+margin_right = 992.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_quitter" type="TextureButton" parent="Menus/Console/Menu"]
+margin_left = 40.0
+margin_top = 34.0
+margin_right = 220.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menus/Console/Menu/Bt_quitter"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 37 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quitter"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_credits" type="TextureButton" parent="Menus/Console/Menu"]
+margin_left = 248.0
+margin_top = 34.0
+margin_right = 428.0
+margin_bottom = 80.0
+texture_normal = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menus/Console/Menu/Bt_credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 37 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Credits"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_console" type="TextureButton" parent="Menus/Console"]
+modulate = Color( 0, 1, 0.129412, 1 )
+margin_left = 38.0
+margin_top = 16.0
+margin_right = 165.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 36 )
+expand = true
+
+[node name="Label" type="Label" parent="Menus/Console/Bt_console"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Console"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_succes" type="TextureButton" parent="Menus/Console"]
+margin_left = 167.0
+margin_top = 16.0
+margin_right = 296.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menus/Console/Bt_succes"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Succes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_data" type="TextureButton" parent="Menus/Console"]
+margin_left = 296.0
+margin_top = 16.0
+margin_right = 425.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menus/Console/Bt_data"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Data"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bt_menu" type="TextureButton" parent="Menus/Console"]
+margin_left = 425.0
+margin_top = 16.0
+margin_right = 554.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 36 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menus/Console/Bt_menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 2 )
+
+[node name="Succes" type="Node" parent="."]
+script = ExtResource( 38 )
+
+[node name="Datas" type="Node" parent="."]
+script = ExtResource( 35 )
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+margin_right = 1284.0
+margin_bottom = 725.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fondu = SubResource( 4 )
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_bouger" to="." method="_on_Bt_bouger_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_rotate" to="." method="_on_Bt_rotate_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_scale" to="." method="_on_Bt_scale_pressed"]
@@ -534,7 +802,14 @@ __meta__ = {
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_planche" to="." method="_on_Bt_planche_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_ventilateur" to="." method="_on_Bt_ventilateur_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_pile" to="." method="_on_Bt_pile_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_laser_froid" to="." method="_on_Bt_laser_froid_pressed"]
+[connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_laser_chaud" to="." method="_on_Bt_laser_chaud_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/GridContainer/Bt_delete" to="." method="_on_Bt_delete_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_lancer" to="." method="_on_Bt_lancer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_recommencer" to="." method="_on_Bt_recommencer_pressed"]
 [connection signal="pressed" from="Menus/Bts/Bt_restart" to="." method="_on_Bt_restart_pressed"]
+[connection signal="pressed" from="Menus/Console/Menu/Bt_quitter" to="." method="_on_Bt_quitter_pressed"]
+[connection signal="pressed" from="Menus/Console/Bt_console" to="." method="_on_Bt_console_pressed"]
+[connection signal="pressed" from="Menus/Console/Bt_succes" to="." method="_on_Bt_succes_pressed"]
+[connection signal="pressed" from="Menus/Console/Bt_data" to="." method="_on_Bt_data_pressed"]
+[connection signal="pressed" from="Menus/Console/Bt_menu" to="." method="_on_Bt_menu_pressed"]

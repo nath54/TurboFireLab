@@ -15,14 +15,10 @@ func _process(delta):
 			# Pour les matériaux conducteurs
 			if body.has_method("is_electrisable") and body.is_electrisable():
 				compteur += 1
+				body.nom_objet_electrisant = get_parent().nom_element
 				body.electrise = true
 				if body.couleur_electricite:
 					body.modulate = Color(0.5,0,1)
-			# Pour les elements de type moteur
-			if body.has_node("Electronique"):
-				body.get_node("Electronique").lancer()
-				compteur += 1
-				# body.lancer()
 			if compteur == -1:
 				break
 		if compteur >= 1:

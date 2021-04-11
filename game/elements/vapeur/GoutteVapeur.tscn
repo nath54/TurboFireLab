@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/elements/vapeur/vapeur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/elements/element.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 21.4476
+
+[node name="GoutteVapeur" type="Node2D"]
+position = Vector2( -0.059227, 0.00192261 )
+script = ExtResource( 2 )
+est_tournable = false
+est_scalable = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -10, -10 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 10
+z_as_relative = false
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Vapeur" type="Node2D" parent="."]
+
+[node name="Vapeur" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -0.174213, 7.11369 )
+
+[node name="Vapeur2" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 5.51663, 4.58277 )
+
+[node name="Vapeur3" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 6.6056, -1.2533 )
+
+[node name="Vapeur4" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 3.28106, -6.25234 )
+
+[node name="Vapeur5" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -2.5448, -6.50026 )
+
+[node name="Vapeur6" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -6.6764, -2.09774 )
+
+[node name="Vapeur7" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -5.45724, 3.89646 )
+
+[node name="Vapeur8" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -3.08665, -3.04597 )
+
+[node name="Vapeur9" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 2.94142, -2.87665 )
+
+[node name="Vapeur10" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -3.15438, 2.10159 )
+
+[node name="Vapeur11" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 2.94142, 2.13546 )
+
+[node name="Vapeur12" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -0.0387516, -0.370595 )
+
+[node name="Vapeur13" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 3.4494, 5.99613 )
+
+[node name="Vapeur14" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 6.97142, 1.76293 )
+
+[node name="Vapeur15" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 5.75226, -3.92648 )
+
+[node name="Vapeur16" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( 0.401501, -7.10984 )
+
+[node name="Vapeur17" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -5.15245, -4.84085 )
+
+[node name="Vapeur18" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -6.81186, 1.28882 )
+
+[node name="Vapeur19" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -3.66236, 5.99613 )
+
+[node name="Vapeur20" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -0.174213, 3.55781 )
+
+[node name="Vapeur21" parent="Vapeur" instance=ExtResource( 1 )]
+position = Vector2( -0.0387497, -3.14757 )
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

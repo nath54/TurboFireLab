@@ -13,6 +13,7 @@ extents = Vector2( 1, 1 )
 position = Vector2( 0.749153, 0 )
 input_pickable = true
 script = ExtResource( 1 )
+nom_element = "block_dur"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( -10, -10 )

@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready():
+	$Panel.visible = true
+	$AnimationPlayer.play("fondu")
 	GlobalGame.game = self
 	if GlobalGame.niveau_encours != null:
 		var packed_scene = load(GlobalGame.niveau_encours)
@@ -22,6 +24,12 @@ func _ready():
 	#
 	console_mes("> System loading ...")
 	console_mes("> Loading complete.")
+	# On s'occupe des succes
+	$Succes.load_succes()
+	$Succes.aff_succes()
+	# On s'occupe des datas
+	$Datas.load_data()
+	$Datas.aff_data()
 
 func test_gagne():
 	# Cette méthode est appelée lorsqu'on éteint une flamme
@@ -35,11 +43,13 @@ func test_gagne():
 func _on_Bt_lancer_pressed():
 	GlobalGame.scene.save_beginning()
 	if not GlobalGame.lance:
+		$Menus/Bts/Bt_lancer/Label.text = "Mettre en pause"
 		# $Menus/Bts/Bt_lancer.text = "pause"
 		Physics2DServer.set_active(true)
 		GlobalGame.lance=true
 		GlobalGame.lance_initial = true
 	else:
+		$Menus/Bts/Bt_lancer/Label.text = "Lancer la simulation"
 		# $Menus/Bts/Bt_lancer.text = "lancer"
 		Physics2DServer.set_active(false)
 		GlobalGame.lance=false
@@ -60,9 +70,9 @@ func console_mes(message):
 	mes.autowrap = true
 	mes.rect_min_size = Vector2(800,20)
 	mes.add_font_override("font", load("res://res/font/rainyhearts_2.tres"))
-	$Menus/Console/ScrollContainer/Console_Messages.add_child(mes)
-	if $Menus/Console/ScrollContainer is ScrollContainer:
-		var scroll = $Menus/Console/ScrollContainer.get_v_scrollbar ()
+	$Menus/Console/Console/ScrollContainer/Console_Messages.add_child(mes)
+	if $Menus/Console/Console/ScrollContainer is ScrollContainer:
+		var scroll = $Menus/Console/Console/ScrollContainer.get_v_scrollbar ()
 		scroll.value = scroll.max_value
 	
 
@@ -173,3 +183,57 @@ func _on_Bt_ventilateur_pressed():
 func _on_Bt_pile_pressed():
 	if GlobalGame.restants_ventilateur == -1 or GlobalGame.restants_ventilateur >= 1:
 		raj_el($"Menus/Menu_elements/GridContainer/Bt_pile", preload("res://game/elements/pile/Pile.tscn"), "Elements/objets", "restants_pile")
+
+
+func _on_Bt_console_pressed():
+	$Menus/Console/Console.visible = true
+	$Menus/Console/Succes.visible = false
+	$Menus/Console/Data.visible = false
+	$Menus/Console/Menu.visible = false
+	$Menus/Console/Bt_console.modulate = Color(0,1,0)
+	$Menus/Console/Bt_succes.modulate = Color(1,1,1)
+	$Menus/Console/Bt_data.modulate = Color(1,1,1)
+	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
+
+func _on_Bt_succes_pressed():
+	$Menus/Console/Console.visible = false
+	$Menus/Console/Succes.visible = true
+	$Menus/Console/Data.visible = false
+	$Menus/Console/Menu.visible = false
+	$Menus/Console/Bt_console.modulate = Color(1,1,1)
+	$Menus/Console/Bt_succes.modulate = Color(0,1,0)
+	$Menus/Console/Bt_data.modulate = Color(1,1,1)
+	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
+
+func _on_Bt_data_pressed():
+	$Menus/Console/Console.visible = false
+	$Menus/Console/Succes.visible = false
+	$Menus/Console/Data.visible = true
+	$Menus/Console/Menu.visible = false
+	$Menus/Console/Bt_console.modulate = Color(1,1,1)
+	$Menus/Console/Bt_succes.modulate = Color(1,1,1)
+	$Menus/Console/Bt_data.modulate = Color(0,1,0)
+	$Menus/Console/Bt_menu.modulate = Color(1,1,1)
+
+func _on_Bt_menu_pressed():
+	$Menus/Console/Console.visible = false
+	$Menus/Console/Succes.visible = false
+	$Menus/Console/Data.visible = false
+	$Menus/Console/Menu.visible = true
+	$Menus/Console/Bt_console.modulate = Color(1,1,1)
+	$Menus/Console/Bt_succes.modulate = Color(1,1,1)
+	$Menus/Console/Bt_data.modulate = Color(1,1,1)
+	$Menus/Console/Bt_menu.modulate = Color(0,1,0)
+
+
+
+func _on_Bt_quitter_pressed():
+	get_tree().quit()
+
+
+func _on_Bt_laser_froid_pressed():
+	pass # Replace with function body.
+
+
+func _on_Bt_laser_chaud_pressed():
+	pass # Replace with function body.

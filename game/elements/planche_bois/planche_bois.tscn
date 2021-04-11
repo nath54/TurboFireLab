@@ -18,6 +18,7 @@ script = ExtResource( 1 )
 est_scalable = false
 effets_vent = true
 obj_friction = 0.3
+nom_element = "planche_bois"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( -65.3921, -9.92126 )

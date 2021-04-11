@@ -1,0 +1,85 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://game/elements/laser_froid/Electronique.gd" type="Script" id=1]
+[ext_resource path="res://game/elements/laser_froid/ZoneFroid.gd" type="Script" id=2]
+[ext_resource path="res://game/elements/element.gd" type="Script" id=3]
+[ext_resource path="res://res/imgs/anim laser/Laser_1.png" type="Texture" id=4]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_4.png" type="Texture" id=5]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_2.png" type="Texture" id=6]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_1.png" type="Texture" id=7]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_5.png" type="Texture" id=8]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_3.png" type="Texture" id=9]
+[ext_resource path="res://res/imgs/anim laser/Laser_0.png" type="Texture" id=10]
+[ext_resource path="res://res/imgs/anim laser/Laser_3.png" type="Texture" id=11]
+[ext_resource path="res://res/imgs/anim laser/Laser_4.png" type="Texture" id=12]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_0.png" type="Texture" id=13]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_8.png" type="Texture" id=14]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_6.png" type="Texture" id=15]
+[ext_resource path="res://res/imgs/Debut_Laser/db_laser_7.png" type="Texture" id=16]
+[ext_resource path="res://res/imgs/anim laser/Laser_2.png" type="Texture" id=17]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 25.9742
+height = 30.8813
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "debut",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "fin",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 61.232, 26.445 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 30.0
+height = 25.0
+
+[node name="LaserFroid" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 3 )
+est_scalable = false
+est_electrisable = true
+nom_element = "laser chaud"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -11.3393, -1.25993 )
+shape = SubResource( 1 )
+
+[node name="Electronique" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="Electronique"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 50.4646, 3.25405 )
+scale = Vector2( 0.830263, 0.830263 )
+frames = SubResource( 2 )
+animation = "debut"
+
+[node name="ZoneFroid" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneFroid"]
+position = Vector2( 64.9224, -0.265778 )
+shape = SubResource( 3 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( -38.9858, -43.8598 )
+shape = SubResource( 4 )
+[connection signal="timeout" from="Electronique/Timer" to="Electronique" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite" to="Electronique" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

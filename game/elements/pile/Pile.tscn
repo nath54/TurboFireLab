@@ -15,6 +15,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
 est_scalable = false
+nom_element = "pile"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.1562, -3.46477 )
