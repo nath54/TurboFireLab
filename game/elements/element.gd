@@ -7,6 +7,7 @@ export var est_supprimable : bool = true
 export var est_electrisable : bool = false
 export var est_conducteur : bool = false
 export var electrise : bool = false
+export var couleur_electricite : bool = false
 export var effets_vent : bool = false
 export var obj_friction : float = 1
 

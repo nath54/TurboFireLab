@@ -6,7 +6,7 @@
 [ext_resource path="res://res/ui/bg.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 507.798, 266.127 )
+extents = Vector2( 507.798, 421.796 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 3 )
@@ -14,12 +14,13 @@ script = ExtResource( 3 )
 [node name="Zone_dexistence" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone_dexistence"]
-position = Vector2( 505.455, 270.285 )
+position = Vector2( 511.448, 135.437 )
 shape = SubResource( 1 )
 
 [node name="Bg" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="Bg"]
+visible = false
 margin_right = 1265.0
 margin_bottom = 725.0
 __meta__ = {

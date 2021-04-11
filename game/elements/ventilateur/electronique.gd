@@ -2,9 +2,6 @@ extends Node
 
 export var temps_timer : int = 8
 
-func _ready():
-	print("jkhkjh", get_parent().has_node("Electronique"))
-
 func lancer():
 	if not get_parent().get_node("ZoneVent").en_cours:
 		get_parent().get_node("ZoneVent").en_cours = true
