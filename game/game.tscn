@@ -522,6 +522,8 @@ __meta__ = {
 }
 
 [node name="Console_Messages" type="VBoxContainer" parent="Menus/Console/ScrollContainer"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_bouger" to="." method="_on_Bt_bouger_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_rotate" to="." method="_on_Bt_rotate_pressed"]
 [connection signal="pressed" from="Menus/Menu_elements/VBoxContainer/HBoxContainer/Bt_scale" to="." method="_on_Bt_scale_pressed"]

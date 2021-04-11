@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menus/splash_screen.gd" type="Script" id=1]
+[ext_resource path="res://res/imgs/logo.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://res/font/rainyhearts.ttf" type="DynamicFontData" id=4]
 
@@ -15,9 +16,19 @@ font_data = ExtResource( 4 )
 size = 70
 font_data = ExtResource( 4 )
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
 [sub_resource type="Animation" id=4]
 resource_name = "splash_screen"
-length = 7.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("screen 1:modulate")
 tracks/0/interp = 1
@@ -37,10 +48,34 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 3.5, 4.5, 5.5, 6.5 ),
+"times": PoolRealArray( 0, 3.5, 4.5, 4.7, 5.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("screen 2:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.5, 4.5, 4.7, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("screen 2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3.5, 4.5, 4.7, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 132.828, 53.1716 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 132.828, 53.1716 ) ]
 }
 
 [node name="splash_screen" type="Control"]
@@ -60,7 +95,6 @@ __meta__ = {
 }
 
 [node name="screen 1" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -88,10 +122,11 @@ texture = ExtResource( 3 )
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.82837
-margin_top = -2.82843
-margin_right = 2.82837
-margin_bottom = -2.82843
+margin_left = 132.828
+margin_top = 53.1716
+margin_right = 132.828
+margin_bottom = 53.1716
+rect_scale = Vector2( 0.8, 0.8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,9 +136,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -226.0
 custom_fonts/font = SubResource( 3 )
-text = "Turbo Fire Lab"
+text = "Turbo Elite Studios"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="screen 2"]
+margin_left = 455.874
+margin_top = 311.164
+margin_right = 771.874
+margin_bottom = 627.164
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="screen 2/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
